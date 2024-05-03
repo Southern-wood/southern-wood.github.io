@@ -34,8 +34,8 @@
 
 <html
   class="not-ready lg:text-base"
-  style="--bg: #fff"
-  lang="en-us"
+  style="--bg: #fbfbfb"
+  lang="zh-cn"
 >
   <head>
   <meta charset="utf-8" />
@@ -46,7 +46,7 @@
   />
 
   
-  <title>Invariant Rule Baseline 复现 - Southern</title>
+  <title>Invariant Rule Baseline 复现 - </title>
 
   
   <meta name="theme-color" />
@@ -55,22 +55,8 @@
   
   
   
-  <meta name="description" content="项目背景 这是清华大学团队的一个项目，和工业互联网的网络异常检测有关。我和另一位网络工程专业的大二本科生一同参与了这个项目，通过线上会议的形式和清华老师进行交流。
-我们的主要任务是复现相关论文的检测方法，作为论文的 baseline 之一。
-具体复现的论文是 NDSS 2019 的一篇论文：《A Systematic Framework to Generate Invariants for Anomaly Detection in Industrial Control Systems》
-这篇论文提出了一种基于数据驱动的方法，用于生成工业控制系统的不变量，以检测异常的网络状态。论文已经有官方实现：github.com/cfeng783/NDSS19_InvariantRuleAD
-我们的任务是复现这个方法，并在指定格式的数据集和指定的实验设置下进行测试（和清华大学团队已经实现过的 baseline 保持一致）。
-主要问题 代码运行效率低下 在我们着手开始复现这个项目之前，团队应该已经有人简单地在数据集上尝试了官方实现，但是因为效率问题没有得到较好的结果，所以这个工作落到了我们手里。
-老师在实验开始之前就提醒我们，官方实现在我们指定的数据集和实验设置上效率不佳，挖掘规则所花费的时间太久。我们需要尝试提高代码的运行效率，比如查找 CFP-growth&#43;&#43; 算法的高效实现方式，或者分布式算法；如果没有，考虑调整参数，或者限制搜索树高度和搜索空间的大小等。
-不过，这最后被发现是一个简单的数据类型问题，而不是算法本身的效率问题，这一点之后会提到。
-代码逻辑不适配所需的实验设置 官方实现的逻辑如下：
-输入单个训练集和单个测试集 按照训练集的数据特征进行一定的变换，并将这些变换同步到测试集上 在训练集上挖掘规则集 在测试集上评估规则的有效性 我们的实验要求划分十个训练集和大量的不同变化后的测试集，每个训练集挖掘规则后，需要在所有的测试集上分别评估规则的有效性。
-如果按照原逻辑，我们需要循环运行成百上千次代码，对单个训练集进行大量的、重复的规则挖掘。在单次规则挖掘需要花费数小时的情况下，这样的效率是难以忍受的。
-详细情况与解决方案 运行效率：数据类型问题 这是整个复现过程中最关键的问题，它解决起来并不麻烦，但是我们花费了很长时间才发现问题的存在。
-我们在本地使用 csv 格式的 SWaT 和 WADI 数据集，可以复现论文结果。在 WADI 数据集上规则挖掘效率大约在三到五小时一个训练集，这个时间是可以接受的，并没有发现清华老师提到的效率问题；但是当我们使用服务器上的清华团队提供的数据集时，效率问题就出现了。
-清华团队提供的同样是 SWaT 和 WADI 数据集，是用 numpy 的 npy 格式存储的。按照老师的说明，只是对原数据集进行了一些简单的切片，并没有更改数据原始值。但是我们发现，使用这些数据集，规则挖掘的效率会大幅下降，一个训练集的挖掘会长达十几个小时——事实上时间只会更长，因为我们并没有等待规则挖掘结束，而是手动终止了实验。
-这完全不符合我们的预期，因为无论是 csv 还是 npy 格式，都是读入之后转为 pandas 的 DataFrame 进行处理，不应该产生效率上的差别。" />
-  <meta name="author" content="Southern" />
+  <meta name="description" content="对一篇工业控制系统网络异常检测的论文进行复现，解决了代码效率问题" />
+  <meta name="author" content="Southernwood" />
   
 
   
@@ -164,13 +150,12 @@
   <meta itemprop="description" content="科研初体验">
   <meta itemprop="datePublished" content="2024-04-30T08:42:54+08:00">
   <meta itemprop="dateModified" content="2024-04-30T08:42:54+08:00">
-  <meta itemprop="wordCount" content="313">
+  <meta itemprop="wordCount" content="309">
   
   <meta property="og:url" content="https://southern-wood.github.io/post/nids/">
-  <meta property="og:site_name" content="Southern">
   <meta property="og:title" content="Invariant Rule Baseline 复现">
   <meta property="og:description" content="科研初体验">
-  <meta property="og:locale" content="en-us">
+  <meta property="og:locale" content="zh-cn">
   <meta property="og:type" content="article">
   <meta property="article:section" content="post">
     <meta property="article:published_time" content="2024-04-30T08:42:54+08:00">
@@ -194,7 +179,7 @@
     <a
       class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
       href="https://southern-wood.github.io/"
-      >Southern</a
+      ></a
     >
     <div
       class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
@@ -226,7 +211,7 @@
 
     
     const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const lightBg = '#fff'.replace(/"/g, '');
+    const lightBg = '#fbfbfb'.replace(/"/g, '');
     const setDark = (isDark) => {
       metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
       htmlClass[isDark ? 'add' : 'remove']('dark');
@@ -380,7 +365,6 @@ Anomaly Detection in Industrial Control Systems》</a></p>
 <p>接下来的内容会比较随意，主要是记录项目中的一些小插曲，以及自己的一些小收获。</p>
 <h3 id="并行加速导致服务器负载过高">并行加速导致服务器负载过高</h3>
 <p>这一点上面已经提到，最开始的并行评估代码创建了太多的线程，导致服务器负载过高，其他老师的实验无法正常进行。</p>
-<p>当时的微信聊天截图：</p>
 <p><img src="pic/weChat.jpg" alt="清华老师微信聊天"></p>
 <p>我在 htop 上看到的 CPU 占用情况：</p>
 <p><img src="pic/htop.png" alt="htop"></p>
@@ -390,11 +374,7 @@ Anomaly Detection in Industrial Control Systems》</a></p>
 <p>我现在充分理解机器学习/深度学习的工作中，计算资源到底有多么重要了。</p>
 <h3 id="linux-权限管理">linux 权限管理</h3>
 <p>这件事发生在整个项目的后期。</p>
-<p>我完成服务器上的训练后，老师由于权限问题没法直接访问我的结果文件。我尝试修改了沿路的权限，但是没有解决问题：</p>
-<p><img src="pic/permission.png" alt="权限"></p>
-<p>于是决定直接选择最小白的方法：将文件下载到本地，打包后用微信发一个 zip 包。</p>
-<p><img src="pic/weChat_file.png" alt="微信文件传输"></p>
-<p>这样，老师就可以直接下载文件了。</p>
+<p>我完成服务器上的训练后，老师由于权限问题没法直接访问我的结果文件。我尝试修改了沿路的权限，但是一时半会没有解决问题。于是决定直接选择最小白的方法：将文件下载到本地，打包后用微信发一个 zip 包。这样，老师就可以直接下载文件了。</p>
 <p>这一套方案虽然有点丑陋，但是确实有效。直到有一天，完成了所有实验之后，我想要像往常一样直接通过 VScode 的 Remote-ssh 插件下载实验结果所在的文件夹，结果插件提示文件夹下文件数量过多，无法下载。</p>
 <p>于是我一拍脑袋，和老师说明了一下情况，然后直接把从根目录下到实验结果文件夹的权限更改为 777，并通知老师查看文件夹。</p>
 <p>这时候，老师指出：</p>
@@ -409,7 +389,7 @@ Anomaly Detection in Industrial Control Systems》</a></p>
 <p>联系老师之后开始排查问题，我们先尝试生成了一个新密钥，重新绑定了服务器的 ssh key，但是仍然无法连接。</p>
 <p>这时候，我想起来我设置的 777 权限，Google 一下，果然存在这个问题，ssh 这类服务会检查文件夹的权限，如果权限过高，会限制某些功能，比如 ssh key 验证。</p>
 <p><img src="pic/permission_too_high.png" alt="权限过高"></p>
-<p>好吧，至少下一次，我不会随便设置 777 权限了 😂 。</p>
+<p>好吧，至少下一次，我不会随便设置 777 权限了 😂</p>
 <h3 id="代码的可维护性">代码的可维护性</h3>
 <p>这是一个短期的项目，我们只需要得到结果，然后代码就可以丢弃了。我并没有花费太多的时间在代码的可维护性上。</p>
 <p>但是，就是在这么短的项目周期里，混乱的代码还是让我吃到了苦头。</p>
@@ -445,7 +425,7 @@ Anomaly Detection in Industrial Control Systems》</a></p>
 >
   <div class="mr-auto">
     &copy; 2024
-    <a class="link" href="https://southern-wood.github.io/">Southern</a>
+    <a class="link" href="https://southern-wood.github.io/"></a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a
