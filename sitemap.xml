@@ -2,11 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://southern-wood.github.io/post/on-prompt-driven-safeguarding-for-language-models/</loc>
+    <lastmod>2024-05-26T08:42:54+08:00</lastmod>
+  </url><url>
     <loc>https://southern-wood.github.io/post/</loc>
-    <lastmod>2024-05-19T20:42:54+08:00</lastmod>
+    <lastmod>2024-05-26T08:42:54+08:00</lastmod>
   </url><url>
     <loc>https://southern-wood.github.io/</loc>
-    <lastmod>2024-05-19T20:42:54+08:00</lastmod>
+    <lastmod>2024-05-26T08:42:54+08:00</lastmod>
   </url><url>
     <loc>https://southern-wood.github.io/post/11st-week/</loc>
     <lastmod>2024-05-19T20:42:54+08:00</lastmod>
