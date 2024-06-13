@@ -170,7 +170,7 @@ Windows 个人常用软件或替代方案 微信 长久以来，微信都没有�
 Windows 个人常用软件或替代方案 微信 长久以来，微信都没有官方的 Linux 客户端。在 Linux 上使用微信一直是个难题，不过好消息是，现在我们有原生的 WeChat 客户端了。">
   <meta itemprop="datePublished" content="2024-06-07T15:57:54+08:00">
   <meta itemprop="dateModified" content="2024-06-07T15:57:54+08:00">
-  <meta itemprop="wordCount" content="371">
+  <meta itemprop="wordCount" content="466">
   
   <meta property="og:url" content="https://southern-wood.github.io/post/work-on-ubuntu/">
   <meta property="og:site_name" content="Southern">
@@ -402,8 +402,31 @@ Windows 个人常用软件或替代方案 微信 长久以来，微信都没有�
 <p>最后，使用 python3 运行 OneDriveGUI：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd src/
 </span></span><span style="display:flex;"><span>python3 OneDriveGUI.py
-</span></span></code></pre></div><p>这样，就可以在 Ubuntu24.04LST 上使用 OneDrive 了。首次登陆时，应用会打开一个浏览器页面，需要输入微软账号和密码，授权 OneDriveGUI 访问你的 OneDrive 账号。</p>
+</span></span></code></pre></div><p>这样，就可以在 Ubuntu24.04LST 上使用 OneDrive 了。</p>
+<p>首次登陆时，应用会打开一个浏览器页面，需要输入微软账号和密码，授权 OneDriveGUI 访问你的 OneDrive 账号；还需要选择同步文件夹和 OneDrive 客户端（不是 OneDriveGUI）二进制文件所在的文件夹。</p>
 <h3 id="配置桌面快捷方式和开机自启">配置桌面快捷方式和开机自启</h3>
+<p>Ubuntu 下的桌面快捷方式文件是 .desktop 文件，在 /usr/share/applications/ 目录下新建 OneDriveGUI.desktop 文件，就可以在应用菜单中找到 OneDriveGUI。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo vim /usr/share/applications/OneDriveGUI.desktop
+</span></span></code></pre></div><p>在文件中写入以下内容：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>Desktop Entry<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Name<span style="color:#f92672">=</span>OneDriveGUI
+</span></span><span style="display:flex;"><span>Exec<span style="color:#f92672">=</span>path/venv/bin/python3 path/src/OneDriveGUI.py
+</span></span><span style="display:flex;"><span>Path<span style="color:#f92672">=</span>path
+</span></span><span style="display:flex;"><span>Icon<span style="color:#f92672">=</span>path/src/resources/images/icons8-clouds-48.ico
+</span></span><span style="display:flex;"><span>Terminal<span style="color:#f92672">=</span>false
+</span></span><span style="display:flex;"><span>Type<span style="color:#f92672">=</span>Application
+</span></span><span style="display:flex;"><span>StartupNotify<span style="color:#f92672">=</span>false
+</span></span></code></pre></div><p>其中，path 是 OneDriveGUI 的安装路径，根据自己安装时的路径进行替换即可。</p>
+<p>如果需要开机自启，可以将 OneDriveGUI.desktop 文件拷贝到 ~/.config/autostart 目录下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp /usr/share/applications/OneDriveGUI.desktop ~/.config/autostart
+</span></span></code></pre></div><p>不过，实际使用下来发现，直接拷贝后开机自启动的 OneDriveGUI 无法最小化到托盘，而是只能最小化到 dock 栏，并且不能获取 icon 图片，效果十分丑陋；但是而点击桌面图标时又能正确打开，并加载 icon 图片。</p>
+<p>运用我机智的头脑推测原因，应该是因为开机自启动 OneDriveGUI 时，系统的一些其他程序还未完全启动，导致一些 api 接口无法正确调用导致的。于是我想出了一个简单的解决方案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo vim ~/.config/autostart/OneDriveGUI.desktop
+</span></span></code></pre></div><p>将 Exec 的内容替换为</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Exec<span style="color:#f92672">=</span>zsh -c <span style="color:#e6db74">&#34;sleep 15 &amp;&amp; path/venv/bin/python3 path/src/OneDriveGUI.py&#34;</span>
+</span></span></code></pre></div><p>其中 path 是 OneDriveGUI 的安装路径，zsh 是我使用的终端，如果你没有手动替换过，默认终端应该是 bash.</p>
+<p>没错，只需要让开机自启程序 sleep 一段时间，再启动 OneDriveGUI 就可以了，实测效果很好。</p>
+<p>记得在 OneDrive 的 profile settings 中勾选 Auto-Sync on GUI startup，在软件全局的 settings 勾选 Start OneDriveGUI minimized. 这样，只要开机并输入密码登录，OneDrive 就会静静地启动，并开始同步。</p>
 </section>
 
   
