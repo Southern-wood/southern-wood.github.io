@@ -6,8 +6,15 @@
     <description>Recent content on Southern</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 19 May 2024 20:42:54 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2024 15:57:54 +0800</lastBuildDate>
     <atom:link href="https://southern-wood.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>不是从零开始的 Ubuntu 使用指南</title>
+      <link>https://southern-wood.github.io/post/work-on-ubuntu/</link>
+      <pubDate>Fri, 07 Jun 2024 15:57:54 +0800</pubDate>
+      <guid>https://southern-wood.github.io/post/work-on-ubuntu/</guid>
+      <description>我在去年购入了一台二手的 thinkpad x1 carbon 2018，我在上面安装了 Ubuntu 22.04 LTS，并小小地体验过类 Unix 系统的便利。&#xA;不过，我一直没有下定决心迁移到 Linux 的工作流。这主要因为 Linux 下的软件生态和 Windows 下的软件生态不同，我需要花时间去适应，寻找一些软件的替代品。而作为一个 Linux 菜鸟，任何一个小问题都可能将我卡住，使我被迫花费大量的时间寻找解决方案。&#xA;当然，人是会成长的。现在，我已经在 Ubuntu 的服务器上实际完成过一些小工作，也在 Windows 下使用过 WSL2，有一些基本的命令行操作经验和 Linux 系统的基本知识。我觉得现在是时候将我的工作流从 Windows 转移到 Linux 了。&#xA;因此，我希望声明的是，这篇文章不是一篇从零开始的 Ubuntu 使用指南。我不会介绍如何烧录镜像，如何安装 Ubuntu，如何配置网络，如何安装软件等等。我会假设你已经有一些简单的 Linux 使用经验，或者至少有一定的命令行操作经验。&#xA;这篇文章会是：&#xA;一篇关于 Ubuntu 实用软件的简短使用指南 一篇介绍我如何将工作流从 Windows 转到 Linux 操作系统的博客 一篇介绍如何在 Ubuntu 上安装和使用 Windows 下一些常见软件的文章 这篇文章不会是：&#xA;一篇从烧录镜像开始到搭建可用环境的新手教程 一篇介绍 Ubuntu 系统的高级使用技巧的文章 补充说明：我在这篇博客中使用的操作系统是 Ubuntu24.04 LTS 桌面版。&#xA;Windows 个人常用软件或替代方案 微信 长久以来，微信都没有官方的 Linux 客户端。在 Linux 上使用微信一直是个难题，不过好消息是，现在我们有原生的 WeChat 客户端了。</description>
+    </item>
     <item>
       <title>大学生的第 12 周</title>
       <link>https://southern-wood.github.io/post/11st-week/</link>

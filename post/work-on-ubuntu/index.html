@@ -1,0 +1,464 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #fbfbfb"
+  lang="zh-cn"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>不是从零开始的 Ubuntu 使用指南 - Southern</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="我在去年购入了一台二手的 thinkpad x1 carbon 2018，我在上面安装了 Ubuntu 22.04 LTS，并小小地体验过类 Unix 系统的便利。
+不过，我一直没有下定决心迁移到 Linux 的工作流。这主要因为 Linux 下的软件生态和 Windows 下的软件生态不同，我需要花时间去适应，寻找一些软件的替代品。而作为一个 Linux 菜鸟，任何一个小问题都可能将我卡住，使我被迫花费大量的时间寻找解决方案。
+当然，人是会成长的。现在，我已经在 Ubuntu 的服务器上实际完成过一些小工作，也在 Windows 下使用过 WSL2，有一些基本的命令行操作经验和 Linux 系统的基本知识。我觉得现在是时候将我的工作流从 Windows 转移到 Linux 了。
+因此，我希望声明的是，这篇文章不是一篇从零开始的 Ubuntu 使用指南。我不会介绍如何烧录镜像，如何安装 Ubuntu，如何配置网络，如何安装软件等等。我会假设你已经有一些简单的 Linux 使用经验，或者至少有一定的命令行操作经验。
+这篇文章会是：
+一篇关于 Ubuntu 实用软件的简短使用指南 一篇介绍我如何将工作流从 Windows 转到 Linux 操作系统的博客 一篇介绍如何在 Ubuntu 上安装和使用 Windows 下一些常见软件的文章 这篇文章不会是：
+一篇从烧录镜像开始到搭建可用环境的新手教程 一篇介绍 Ubuntu 系统的高级使用技巧的文章 补充说明：我在这篇博客中使用的操作系统是 Ubuntu24.04 LTS 桌面版。
+Windows 个人常用软件或替代方案 微信 长久以来，微信都没有官方的 Linux 客户端。在 Linux 上使用微信一直是个难题，不过好消息是，现在我们有原生的 WeChat 客户端了。" />
+  <meta name="author" content="Southernwood" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://southern-wood.github.io/main.min.css" />
+
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="https://southern-wood.github.io/theme.svg" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  <link rel="preload" as="image" href="https://southern-wood.github.io/github.svg" />
+  
+  
+
+  
+  
+  <script
+    defer
+    src="https://southern-wood.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css"
+  integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI"
+  crossorigin="anonymous"
+/>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"
+  integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t"
+  crossorigin="anonymous"
+></script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+  crossorigin="anonymous"
+></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () =>
+    renderMathInElement(document.body, {
+      
+      
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+      ],
+      
+      throwOnError: false,
+    }),
+  );
+</script>
+
+  
+  
+  
+
+  
+  <link rel="icon" href="https://southern-wood.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://southern-wood.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.127.0">
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  <meta itemprop="name" content="不是从零开始的 Ubuntu 使用指南">
+  <meta itemprop="description" content="我在去年购入了一台二手的 thinkpad x1 carbon 2018，我在上面安装了 Ubuntu 22.04 LTS，并小小地体验过类 Unix 系统的便利。
+不过，我一直没有下定决心迁移到 Linux 的工作流。这主要因为 Linux 下的软件生态和 Windows 下的软件生态不同，我需要花时间去适应，寻找一些软件的替代品。而作为一个 Linux 菜鸟，任何一个小问题都可能将我卡住，使我被迫花费大量的时间寻找解决方案。
+当然，人是会成长的。现在，我已经在 Ubuntu 的服务器上实际完成过一些小工作，也在 Windows 下使用过 WSL2，有一些基本的命令行操作经验和 Linux 系统的基本知识。我觉得现在是时候将我的工作流从 Windows 转移到 Linux 了。
+因此，我希望声明的是，这篇文章不是一篇从零开始的 Ubuntu 使用指南。我不会介绍如何烧录镜像，如何安装 Ubuntu，如何配置网络，如何安装软件等等。我会假设你已经有一些简单的 Linux 使用经验，或者至少有一定的命令行操作经验。
+这篇文章会是：
+一篇关于 Ubuntu 实用软件的简短使用指南 一篇介绍我如何将工作流从 Windows 转到 Linux 操作系统的博客 一篇介绍如何在 Ubuntu 上安装和使用 Windows 下一些常见软件的文章 这篇文章不会是：
+一篇从烧录镜像开始到搭建可用环境的新手教程 一篇介绍 Ubuntu 系统的高级使用技巧的文章 补充说明：我在这篇博客中使用的操作系统是 Ubuntu24.04 LTS 桌面版。
+Windows 个人常用软件或替代方案 微信 长久以来，微信都没有官方的 Linux 客户端。在 Linux 上使用微信一直是个难题，不过好消息是，现在我们有原生的 WeChat 客户端了。">
+  <meta itemprop="datePublished" content="2024-06-07T15:57:54+08:00">
+  <meta itemprop="dateModified" content="2024-06-07T15:57:54+08:00">
+  <meta itemprop="wordCount" content="371">
+  
+  <meta property="og:url" content="https://southern-wood.github.io/post/work-on-ubuntu/">
+  <meta property="og:site_name" content="Southern">
+  <meta property="og:title" content="不是从零开始的 Ubuntu 使用指南">
+  <meta property="og:description" content="我在去年购入了一台二手的 thinkpad x1 carbon 2018，我在上面安装了 Ubuntu 22.04 LTS，并小小地体验过类 Unix 系统的便利。
+不过，我一直没有下定决心迁移到 Linux 的工作流。这主要因为 Linux 下的软件生态和 Windows 下的软件生态不同，我需要花时间去适应，寻找一些软件的替代品。而作为一个 Linux 菜鸟，任何一个小问题都可能将我卡住，使我被迫花费大量的时间寻找解决方案。
+当然，人是会成长的。现在，我已经在 Ubuntu 的服务器上实际完成过一些小工作，也在 Windows 下使用过 WSL2，有一些基本的命令行操作经验和 Linux 系统的基本知识。我觉得现在是时候将我的工作流从 Windows 转移到 Linux 了。
+因此，我希望声明的是，这篇文章不是一篇从零开始的 Ubuntu 使用指南。我不会介绍如何烧录镜像，如何安装 Ubuntu，如何配置网络，如何安装软件等等。我会假设你已经有一些简单的 Linux 使用经验，或者至少有一定的命令行操作经验。
+这篇文章会是：
+一篇关于 Ubuntu 实用软件的简短使用指南 一篇介绍我如何将工作流从 Windows 转到 Linux 操作系统的博客 一篇介绍如何在 Ubuntu 上安装和使用 Windows 下一些常见软件的文章 这篇文章不会是：
+一篇从烧录镜像开始到搭建可用环境的新手教程 一篇介绍 Ubuntu 系统的高级使用技巧的文章 补充说明：我在这篇博客中使用的操作系统是 Ubuntu24.04 LTS 桌面版。
+Windows 个人常用软件或替代方案 微信 长久以来，微信都没有官方的 Linux 客户端。在 Linux 上使用微信一直是个难题，不过好消息是，现在我们有原生的 WeChat 客户端了。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-06-07T15:57:54+08:00">
+    <meta property="article:modified_time" content="2024-06-07T15:57:54+08:00">
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="不是从零开始的 Ubuntu 使用指南">
+  <meta name="twitter:description" content="我在去年购入了一台二手的 thinkpad x1 carbon 2018，我在上面安装了 Ubuntu 22.04 LTS，并小小地体验过类 Unix 系统的便利。
+不过，我一直没有下定决心迁移到 Linux 的工作流。这主要因为 Linux 下的软件生态和 Windows 下的软件生态不同，我需要花时间去适应，寻找一些软件的替代品。而作为一个 Linux 菜鸟，任何一个小问题都可能将我卡住，使我被迫花费大量的时间寻找解决方案。
+当然，人是会成长的。现在，我已经在 Ubuntu 的服务器上实际完成过一些小工作，也在 Windows 下使用过 WSL2，有一些基本的命令行操作经验和 Linux 系统的基本知识。我觉得现在是时候将我的工作流从 Windows 转移到 Linux 了。
+因此，我希望声明的是，这篇文章不是一篇从零开始的 Ubuntu 使用指南。我不会介绍如何烧录镜像，如何安装 Ubuntu，如何配置网络，如何安装软件等等。我会假设你已经有一些简单的 Linux 使用经验，或者至少有一定的命令行操作经验。
+这篇文章会是：
+一篇关于 Ubuntu 实用软件的简短使用指南 一篇介绍我如何将工作流从 Windows 转到 Linux 操作系统的博客 一篇介绍如何在 Ubuntu 上安装和使用 Windows 下一些常见软件的文章 这篇文章不会是：
+一篇从烧录镜像开始到搭建可用环境的新手教程 一篇介绍 Ubuntu 系统的高级使用技巧的文章 补充说明：我在这篇博客中使用的操作系统是 Ubuntu24.04 LTS 桌面版。
+Windows 个人常用软件或替代方案 微信 长久以来，微信都没有官方的 Linux 客户端。在 Linux 上使用微信一直是个难题，不过好消息是，现在我们有原生的 WeChat 客户端了。">
+
+  
+  
+  
+  <link rel="canonical" href="https://southern-wood.github.io/post/work-on-ubuntu/" />
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://southern-wood.github.io/"
+      >Southern</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#fbfbfb'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:ml-12 lg:mt-0 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/Southern-wood"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">不是从零开始的 Ubuntu 使用指南</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Jun 7, 2024</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p>我在去年购入了一台二手的 thinkpad x1 carbon 2018，我在上面安装了 Ubuntu 22.04 LTS，并小小地体验过类 Unix 系统的便利。</p>
+<p>不过，我一直没有下定决心迁移到 Linux 的工作流。这主要因为 Linux 下的软件生态和 Windows 下的软件生态不同，我需要花时间去适应，寻找一些软件的替代品。而作为一个 Linux 菜鸟，任何一个小问题都可能将我卡住，使我被迫花费大量的时间寻找解决方案。</p>
+<p>当然，人是会成长的。现在，我已经在 Ubuntu 的服务器上实际完成过一些小工作，也在 Windows 下使用过 WSL2，有一些基本的命令行操作经验和 Linux 系统的基本知识。我觉得现在是时候将我的工作流从 Windows 转移到 Linux 了。</p>
+<p>因此，我希望声明的是，这篇文章<strong>不是</strong>一篇从零开始的 Ubuntu 使用指南。我不会介绍如何烧录镜像，如何安装 Ubuntu，如何配置网络，如何安装软件等等。我会假设你已经有一些简单的 Linux 使用经验，或者至少有一定的命令行操作经验。</p>
+<p>这篇文章会是：</p>
+<ul>
+<li>一篇关于 Ubuntu 实用软件的简短使用指南</li>
+<li>一篇介绍我如何将工作流从 Windows 转到 Linux 操作系统的博客</li>
+<li>一篇介绍如何在 Ubuntu 上安装和使用 Windows 下一些常见软件的文章</li>
+</ul>
+<p>这篇文章<strong>不会</strong>是：</p>
+<ul>
+<li>一篇从烧录镜像开始到搭建可用环境的新手教程</li>
+<li>一篇介绍 Ubuntu 系统的高级使用技巧的文章</li>
+</ul>
+<p>补充说明：我在这篇博客中使用的操作系统是 <strong>Ubuntu24.04 LTS</strong> 桌面版。</p>
+<h2 id="windows-个人常用软件或替代方案">Windows 个人常用软件或替代方案</h2>
+<h2 id="微信">微信</h2>
+<p>长久以来，微信都没有官方的 Linux 客户端。在 Linux 上使用微信一直是个难题，不过好消息是，现在我们有原生的 WeChat 客户端了。</p>
+<p>WeChat-beta 是腾讯官方针对统信 uos 系统开发的微信客户端，在登录过程中会检测系统是否为统信 uos 系统，如果不是则无法登录。不过，在 github 上能找到魔改后的 <a href="https://github.com/lovechoudoufu/wechat_for_linux/releases">WeChat-beta</a>，绕过了登陆检测，可以在 Ubuntu24.04LST 上正常使用。</p>
+<p>下载后使用 apt-get 解压安装，这可以自动解决一些依赖问题，对新手很友好。</p>
+<p>注意，即使 deb 包在当前目录下，也需要使用 ./ 前缀，否则 apt-get 会从软件源中尝试匹配下载。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install ./wechat-beta_1.0.0.145_amd64.fixed.deb 
+</span></span></code></pre></div><p>如果需要卸载，可以使用 apt-get remove 命令。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get remove wechat-beta
+</span></span></code></pre></div><h2 id="qq">QQ</h2>
+<p>QQ 有一个官方的最新版 Linux 客户端，和 Windows 版本的功能、外观几乎一致。</p>
+<p>可以在 <a href="https://im.qq.com/linuxqq/download.html">QQ-linux 版</a> 下载最新版的 deb 包，可以和微信一样，使用 apt-get 安装。</p>
+<h2 id="apple-music">Apple Music</h2>
+<p>苹果当然没有为 Linux 开发 Apple Music 客户端，不过我们可以使用网页版的 Apple Music. ubuntu 的 snap store 里有一个 <a href="https://snapcraft.io/apple-music-for-linux">Apple Music for Linux</a> 的 snap 包，本质上是包装了一个浏览器页面，功能上和网页版一致。</p>
+<p>ubuntu 用户可以使用 snap 安装：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo snap install apple-music-for-linux
+</span></span></code></pre></div><h2 id="onedrive">OneDrive</h2>
+<h3 id="从源代码构建-onedrive-client-for-linux">从源代码构建 OneDrive Client for Linux</h3>
+<p>OneDrive 也没有官方的 Linux 客户端，不过存在一个开源的第三方客户端 <a href="https://github.com/abraunegg/onedrive">OneDrive Client for Linux</a>，还有一个配套的 GUI 界面 <a href="https://github.com/bpozdena/OneDriveGUI">OneDriveGUI</a>，整体使用体验还不错。</p>
+<p>截至目前，OneDrive Client for Linux 仍然在维护，我写这篇文章时的最新版本是 2.5.0-rc2, 是一个全新的重构版本，与 v2.4.x 版本不兼容。由于我使用的是还处于实验阶段的 Ubuntu24.04LST，开发者没有提供对应的 deb 包，所以我只能使用源码编译安装。</p>
+<p>注意，有存在适用于 ubuntu 的 OneDrive Universe 软件源，但是这些软件源已经过期并且不再维护，不推荐使用，因此请不要尝试使用 apt-get 安装。</p>
+<p>从源代码编译安装 OneDrive Client for Linux，可以参看 <a href="https://github.com/abraunegg/onedrive/blob/master/docs/INSTALL.md">docs/install.md</a> 文档。</p>
+<p>Ubuntu24.04LST 上的安装步骤如下：</p>
+<p>安装依赖项，并安装 DMD 编译器：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install build-essential
+</span></span><span style="display:flex;"><span>sudo apt install libcurl4-openssl-dev libsqlite3-dev pkg-config git curl
+</span></span><span style="display:flex;"><span>curl -fsS https://dlang.org/install.sh | bash -s dmd
+</span></span></code></pre></div><p>激活 DMD 编译器：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/dlang/dmd-2.xxx.0/activate
+</span></span></code></pre></div><p>其中 xxx 是版本号，需要根据实际情况替换。在通过 curl 安装 DMD 编译器成功时，会有提示如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Run <span style="color:#e6db74">`</span>source ~/dlang/dmd-2.xxx.0/activate<span style="color:#e6db74">`</span> in your shell to use dmd-2.xxx.0.
+</span></span><span style="display:flex;"><span>This will setup PATH, LIBRARY_PATH, LD_LIBRARY_PATH, DMD, DC, and PS1.
+</span></span><span style="display:flex;"><span>Run <span style="color:#e6db74">`</span>deactivate<span style="color:#e6db74">`</span> later on to restore your environment.
+</span></span></code></pre></div><p>根据提示激活对应版本的 DMD 编译器即可，如果已经错过了提示，可以进入 ~/dlang/ 目录查看 dmd-2.xxx.0 目录的具体版本号。</p>
+<p>下载源代码并编译安装：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/abraunegg/onedrive.git
+</span></span><span style="display:flex;"><span>cd onedrive
+</span></span><span style="display:flex;"><span>./configure
+</span></span><span style="display:flex;"><span>make clean; make;
+</span></span><span style="display:flex;"><span>sudo make install
+</span></span></code></pre></div><p>安装完成后，可以使用 onedrive 命令行工具进行配置和同步。不过我更推荐新手使用 OneDriveGUI，它提供了一个友好的图形界面，对从刚刚 Windows 迁移到 Linux 的用户更友好。</p>
+<h3 id="从源代码构建-onedrivegui">从源代码构建 OneDriveGUI</h3>
+<p>OneDriveGUI 的安装方法可以参看 <a href="https://github.com/bpozdena/OneDriveGUI">OneDriveGUI</a> 的说明。不过，开发者只提供了一个 AppImage 文件，理论上可以直接下载运行。</p>
+<p>我在 Ubuntu24.04LST 上运行 AppImage 时遇到了一些权限问题，sudo 启动可以解决这个问题，但是每次启动都需要输入密码。作为一个云同步工具，我希望它能开机自启，并且静默地在后台运行，而不是每次都要手动打开，输入密码。</p>
+<p>所以我只能：从源代码编译 OneDriveGUI 程序。</p>
+<p>首先需要确定自己在 ubuntu 上安装了 Python3 以及 pip 工具。</p>
+<p>克隆 OneDriveGUI 项目到本地，并进入项目目录：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/bpozdena/OneDriveGUI.git
+</span></span><span style="display:flex;"><span>cd OneDriveGUI
+</span></span></code></pre></div><p>这里，官方文档直接使用 pip 下载软件包：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m pip install -r requirements.txt
+</span></span></code></pre></div><p>但是，我在 Ubuntu24.04LST 上实际使用 python3.12，无法下载软件包，提示：</p>
+<p><img src="pic/pip-error.png" alt="pip-error"></p>
+<p>python3.12 不再支持全局 pip 下载软件包，并且为了防止 pip 和 apt 等包管理器混在一起，最推荐的做法应该是首先为 OneDriveGUI 创建一个虚拟环境：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m venv venv
+</span></span><span style="display:flex;"><span>source venv/bin/activate
+</span></span><span style="display:flex;"><span>python3 -m pip install -r requirements.txt
+</span></span><span style="display:flex;"><span>deactivate
+</span></span></code></pre></div><p>这样，OneDriveGUI 就可以在虚拟环境中运行，不会影响到系统的其他软件包。</p>
+<p>最后，使用 python3 运行 OneDriveGUI：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd src/
+</span></span><span style="display:flex;"><span>python3 OneDriveGUI.py
+</span></span></code></pre></div><p>这样，就可以在 Ubuntu24.04LST 上使用 OneDrive 了。首次登陆时，应用会打开一个浏览器页面，需要输入微软账号和密码，授权 OneDriveGUI 访问你的 OneDrive 账号。</p>
+<h3 id="配置桌面快捷方式和开机自启">配置桌面快捷方式和开机自启</h3>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://southern-wood.github.io/post/11st-week/"
+      ><span>大学生的第 12 周</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="https://southern-wood.github.io/">Southern</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>
