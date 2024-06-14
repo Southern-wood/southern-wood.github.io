@@ -170,7 +170,7 @@ Windows 个人常用软件或替代方案 微信 长久以来，微信都没有�
 Windows 个人常用软件或替代方案 微信 长久以来，微信都没有官方的 Linux 客户端。在 Linux 上使用微信一直是个难题，不过好消息是，现在我们有原生的 WeChat 客户端了。">
   <meta itemprop="datePublished" content="2024-06-07T15:57:54+08:00">
   <meta itemprop="dateModified" content="2024-06-07T15:57:54+08:00">
-  <meta itemprop="wordCount" content="466">
+  <meta itemprop="wordCount" content="640">
   
   <meta property="og:url" content="https://southern-wood.github.io/post/work-on-ubuntu/">
   <meta property="og:site_name" content="Southern">
@@ -427,6 +427,19 @@ Windows 个人常用软件或替代方案 微信 长久以来，微信都没有�
 </span></span></code></pre></div><p>其中 path 是 OneDriveGUI 的安装路径，zsh 是我使用的终端，如果你没有手动替换过，默认终端应该是 bash.</p>
 <p>没错，只需要让开机自启程序 sleep 一段时间，再启动 OneDriveGUI 就可以了，实测效果很好。</p>
 <p>记得在 OneDrive 的 profile settings 中勾选 Auto-Sync on GUI startup，在软件全局的 settings 勾选 Start OneDriveGUI minimized. 这样，只要开机并输入密码登录，OneDrive 就会静静地启动，并开始同步。</p>
+<h2 id="虚拟机下使用-office-软件">虚拟机下使用 Office 软件</h2>
+<p>在 Linux 下使用 Office 软件也是阻碍我迁移的一个原因。我可以使用 LibreOffice 或者 WPS 作为临时的替代方案，但是这仅限于查看老师发布的 ppt 或者 doc 文件；因为使用其他软件编辑过的文件在 Office 上会出现格式问题，所以如果是需要上交的课程报告，还是需要使用 Office 保证格式。</p>
+<p>当然，我可以使用 Office Online，但是它的功能和体验都不如本地的 Office 软件；使用 wine 安装 Office 也是一个选择，但是 wine 的兼容性和稳定性都不是很好。我认为最稳定的解决方案，还是使用虚拟机安装 Windows 系统，作为 Office 软件的运行环境。</p>
+<p>VMware Workstation Player 是著名的虚拟机软件，2024 年 5 月，VMware 团队宣布 VMware Workstation Pro 17.0 对个人用户免费，因此无需再购买许可证了。</p>
+<p>首先进入博客 <a href="https://blogs.vmware.com/workstation/2024/05/vmware-workstation-pro-now-available-free-for-personal-use.html">VMware Workstation Pro: Now Available Free for Personal Use</a> 。在博客里找到 VMware Workstation Pro Download 的链接，按照提示注册一个 broadcom 账号，即可在跳转页面下载 VMware Workstation Pro 17.0，记得选择 for Personal Use 的版本。</p>
+<p><img src="pic/VMware.png" alt="vmware"></p>
+<p>光盘镜像方面，可以按照自己的需求在 Microsoft 官网下载 Windows 对应版本的 iso 镜像，我选用的 Windows 11 镜像下载链接为 <a href="https://www.microsoft.com/zh-cn/software-download/windows11">Windows 11 镜像</a>。</p>
+<p>使用 iso 镜像安装 Windows 11 后，需要提供 Windows 11 的激活密钥。如果你是在校大学生，这通常不成问题，学校一般会为在校师生提供正版 Windows 系统的激活方式，可以在学校的官网或者信息化办公室的网站上找到。</p>
+<p>如果你并没有激活密钥，可以考虑下载微软为开发者提供的 <a href="https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/">Windows 企业评估版镜像</a>，不过这些镜像是提供给企业评估是否购买 Windows 企业版使用的。这个镜像会附带 Visual Studio 的社区版本，启用 WLS2 并预装了 Ubuntu（没错，这样你就可以在 Ubuntu 的 Windows 虚拟机下运行 WSL2 的 Ubuntu 系统了），当然你也可以在底部找到不预装这些软件的版本……</p>
+<p>但这些预装软件不是最重要的。它是一个用于评估的版本，因此它会在 90 天后过期，到时虚拟机会每小时关机一次，并有持续的桌面提示，指示这并不是正版的 Windows 系统。</p>
+<p>目前，我并不知道是否可以通过重装系统来刷新 90 天的评估时间，如果你觉得值得一试，那么祝你好运。不过我仍然不建议长期使用这个版本，我建议可以在正式激活 Windows 11 之前，体验一下虚拟机运行 Windows 11 的流畅程度，来考虑你是否可以接受虚拟机下使用 Office 软件——还是需要安装一个双系统。</p>
+<p>Workstation Player 17.0 的安装以及虚拟机的创建和配置应该是丝滑的，这里不再赘述，不过如果你真的遇到了问题，可以参考 <a href="https://docs.vmware.com/cn/VMware-Workstation-Pro/17/com.vmware.ws.using.doc/GUID-0EE752F8-C159-487A-9159-FE1F646EE4CA.html">VMware Workstation Pro 的文档</a>。唯一值得一提的是，虚拟机的配置要根据自己的电脑配置来调整，不要让虚拟机占用过多的资源，导致主机卡顿。作为参考，我正在使用的主机是 4 核 8 线程的 i5-8250U 处理器，16GB 内存，512GB SSD，虚拟机配置为 2 处理器，8 GB 内存，64 GB 硬盘空间。</p>
+<p>Office 365 的 OEM 许可证是不可迁移的，假如你有一台购买时赠送了 Office 365 的电脑，不用试图通过登录账号来激活 Office 365. 一般来说，你需要自费订阅 Office 365，或者购买 Office 2021 的许可证——当然，在校大学生也可以通过学校获取正版的 Office 2021 许可证。</p>
 </section>
 
   
