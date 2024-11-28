@@ -16,6 +16,13 @@
       <description>我是浙江工业大学计算机科学与技术专业的学生，本科三年级在读。&#xA;我本科期间参加了 ICPC/CCPC 竞赛，最好的成绩是 ICPC 亚洲区域赛铜牌，CCPC 全国赛铜牌。&#xA;我从 2024.5 开始在某校网络安全实验室线上实习，在做工业控制系统网络异常检测的相关工作。&#xA;这个博客是个人性质的，主题上相对杂乱，并非只有技术性的内容。&#xA;我会在这里总结学习到的计算机科学相关知识，也会分享一些个人思考，写一些随笔或记录性质的文字。不过总体而言，我会尽量保持博客的内容质量。&#xA;如果你对我或者我博客的内容感兴趣，可以通过以下方式联系我：&#xA;邮箱：Southernwood.zn@gmail.com </description>
     </item>
     <item>
+      <title>如何在共享的 Linux 服务器上使用资源</title>
+      <link>https://southern-wood.github.io/post/2024/11/how-to-use-resources-on-a-shared-linux-server/</link>
+      <pubDate>Thu, 28 Nov 2024 00:00:00 +0800</pubDate>
+      <guid>https://southern-wood.github.io/post/2024/11/how-to-use-resources-on-a-shared-linux-server/</guid>
+      <description>我目前在外校的网络安全实验室线上实习，实验室有一台共享的 Linux 服务器，我至今为止的所有工作几乎都是在这台服务器上完成的。&#xA;尽管有一定的 Linux 使用经验，但是我还是在整个实习过程中遇到了比较多的问题。究其原因，使用一台属于自己的 Linux 本地机器和作为一个普通用户访问共享的 Linux 服务器，还是有很大的区别的。&#xA;这篇文章里，我想分享下我使用服务器中用到的一些工具，遇到的问题以及解决方案。&#xA;SSH 连接工具 我找不出任何不推荐 VS Code Remote-SSH 插件的理由。&#xA;只需要简单的配置，你就可以使用本地的 VS Code 终端编辑远程服务器上的文件，同时，所有的插件和配置都能方便地同步到远程服务器上，体验上和本地写代码并没有区别。&#xA;最重要的是，Github Copilot 也能在远程服务器上方便地访问。使用过 AI Copilot 后，我很难回到没有 AI 插件的环境了，由俭入奢易，由奢入俭难啊。&#xA;并行化工具 在服务器上，我经常需要同时运行多个任务。特别常见的场景是，同一段代码需要在不同的数据集或者不同的参数设置下进行评估。&#xA;这种情况如果在本地的机器，我可能会用 GNU Parallel；但是服务器上并没有安装这个工具。作为一个替代方案，我常用的方式是手动写一个 shell 脚本来管理任务。&#xA;例如，main.py 这个程序需要在 10 个数据集上运行，我写的 shell 脚本可能会像这样：&#xA;#!/bin/bash for i in {1..10} do nohup python main.py --dataset dataset_$i 2&amp;gt;&amp;amp;1 &amp;gt; output_$i.log &amp;amp; done 这里的 nohup 是用来创建后台进程，如果不使用 nohup 直接运行 python main.py，在 SSH 连接中断后程序会停止运行；&amp;amp; 是用来将任务放到后台运行，和当前的终端分离。&#xA;当然，这是只是最粗糙的并行脚本，它的问题有很多，最容易想到的有两点：</description>
+    </item>
+    <item>
       <title>生活没有终点</title>
       <link>https://southern-wood.github.io/post/2024/11/life-never-ends/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0800</pubDate>
