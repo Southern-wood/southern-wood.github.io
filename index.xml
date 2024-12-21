@@ -1,54 +1,69 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Southern</title>
-    <link>https://southern-wood.github.io/</link>
+    <link>https://Southern-wood.github.io/</link>
     <description>Recent content on Southern</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Thu, 28 Nov 2024 00:00:00 +0800</lastBuildDate>
-    <atom:link href="https://southern-wood.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <title>Southern</title>
+      <url>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.140.0</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://Southern-wood.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>About</title>
-      <link>https://southern-wood.github.io/about/</link>
-      <pubDate>Thu, 28 Nov 2024 00:00:00 +0800</pubDate>
-      <guid>https://southern-wood.github.io/about/</guid>
-      <description>我是浙江工业大学计算机科学与技术专业的学生，本科三年级在读。&#xA;我本科期间参加了 ICPC/CCPC 竞赛，最好的成绩是 ICPC 亚洲区域赛铜牌，CCPC 全国赛铜牌。&#xA;我从 2024.5 开始在某校网络安全实验室线上实习，在做工业控制系统网络异常检测的相关工作。&#xA;这个博客是个人性质的，主题上相对杂乱，并非只有技术性的内容。&#xA;我会在这里总结学习到的计算机科学相关知识，也会分享一些个人思考，写一些随笔或记录性质的文字。不过总体而言，我会尽量保持博客的内容质量。&#xA;如果你对我或者我博客的内容感兴趣，可以通过以下方式联系我：&#xA;邮箱：Southernwood.zn@gmail.com </description>
+      <title>如何使用 docker 在 Mac 上运行并配置 Ubuntu</title>
+      <link>https://Southern-wood.github.io/post/2024/12/run-ubuntu-on-mac-with-docker/pic/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0800</pubDate>
+      <guid>https://Southern-wood.github.io/post/2024/12/run-ubuntu-on-mac-with-docker/pic/</guid>
+      <description>为了完成学校的操作系统设计课程，我需要在 Mac 上运行 Ubuntu 系统。我使用 docker run 了一个 Ubuntu 镜像，并在其中配置了 fish shell 和 screenfetch。</description>
     </item>
     <item>
-      <title>如何在共享的 Linux 服务器上使用资源</title>
-      <link>https://southern-wood.github.io/post/2024/11/how-to-use-resources-on-a-shared-linux-server/</link>
+      <title>About</title>
+      <link>https://Southern-wood.github.io/about/</link>
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0800</pubDate>
-      <guid>https://southern-wood.github.io/post/2024/11/how-to-use-resources-on-a-shared-linux-server/</guid>
-      <description>我目前在外校的网络安全实验室线上实习，实验室有一台共享的 Linux 服务器，我至今为止的所有工作几乎都是在这台服务器上完成的。&#xA;尽管有一定的 Linux 使用经验，但是我还是在整个实习过程中遇到了比较多的问题。究其原因，使用一台属于自己的 Linux 本地机器和作为一个普通用户访问共享的 Linux 服务器，还是有很大的区别的。&#xA;这篇文章里，我想分享下我使用服务器中用到的一些工具，遇到的问题以及解决方案。&#xA;SSH 连接工具 我找不出任何不推荐 VS Code Remote-SSH 插件的理由。&#xA;只需要简单的配置，你就可以使用本地的 VS Code 终端编辑远程服务器上的文件，同时，所有的插件和配置都能方便地同步到远程服务器上，体验上和本地写代码并没有区别。&#xA;最重要的是，Github Copilot 也能在远程服务器上方便地访问。使用过 AI Copilot 后，我很难回到没有 AI 插件的环境了，由俭入奢易，由奢入俭难啊。&#xA;并行化工具 在服务器上，我经常需要同时运行多个任务。特别常见的场景是，同一段代码需要在不同的数据集或者不同的参数设置下进行评估。&#xA;这种情况如果在本地的机器，我可能会用 GNU Parallel；但是服务器上并没有安装这个工具。作为一个替代方案，我常用的方式是手动写一个 shell 脚本来管理任务。&#xA;例如，main.py 这个程序需要在 10 个数据集上运行，我写的 shell 脚本可能会像这样：&#xA;#!/bin/bash for i in {1..10} do nohup python main.py --dataset dataset_$i 2&amp;gt;&amp;amp;1 &amp;gt; output_$i.log &amp;amp; done 这里的 nohup 是用来创建后台进程，如果不使用 nohup 直接运行 python main.py，在 SSH 连接中断后程序会停止运行；&amp;amp; 是用来将任务放到后台运行，和当前的终端分离。&#xA;当然，这是只是最粗糙的并行脚本，它的问题有很多，最容易想到的有两点：</description>
+      <guid>https://Southern-wood.github.io/about/</guid>
+      <description>关于我</description>
+    </item>
+    <item>
+      <title>如何在共享的 Linux 服务器上合理使用资源</title>
+      <link>https://Southern-wood.github.io/post/2024/11/how-to-use-resources-on-a-shared-linux-server/</link>
+      <pubDate>Thu, 28 Nov 2024 00:00:00 +0800</pubDate>
+      <guid>https://Southern-wood.github.io/post/2024/11/how-to-use-resources-on-a-shared-linux-server/</guid>
+      <description>&lt;p&gt;我目前在外校的网络安全实验室线上实习，实验室有一台共享的 Linux 服务器，我至今为止的所有工作几乎都是在这台服务器上完成的。&lt;/p&gt;
+&lt;p&gt;尽管有一定的 Linux 使用经验，但是我还是在整个实习过程中遇到了比较多的问题。究其原因，使用一台属于自己的 Linux 本地机器，和作为一个普通用户访问共享的 Linux 服务器，这之间还是有较大的区别的。&lt;/p&gt;</description>
     </item>
     <item>
       <title>生活没有终点</title>
-      <link>https://southern-wood.github.io/post/2024/11/life-never-ends/</link>
+      <link>https://Southern-wood.github.io/post/2024/11/life-never-ends/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0800</pubDate>
-      <guid>https://southern-wood.github.io/post/2024/11/life-never-ends/</guid>
-      <description>写下这些字的时候，我正在从沈阳飞往杭州的飞机上。&#xA;几个小时前，ICPC 沈阳站的比赛刚刚结束，我们队又拿了一块铜牌。实际上，我们已经有一块 ICPC 成都站的铜牌和一块 CCPC 郑州站的铜牌了，我们都非常想要拿一块银牌。&#xA;然而，我们已经用尽所有的比赛名额，ICPC 沈阳已经是我们最后一次冲击银牌的机会了。无论赛后发现我们曾经多么多么接近那块银牌，都已经于事无补，我必须接受铜牌退役的事实。&#xA;我完全不是一个天赋型的算法竞赛选手，而我的努力实际上也还远远不够。&#xA;我在高中并不是一个信息学奥赛选手。作为浙江考生，我没有选考技术这门课。在被浙工大计算机录取之前，我甚至没有实际写过一行代码。我走上算法竞赛这条路，成为一个 ACMer，或者严谨地来说，一个 XCPCer，完全是机缘巧合。&#xA;大一的《C 语言程序设计》 是我的第一门编程课，教我这门课的老师课外在做程序设计竞赛的辅导，有一个自己的 OJ，平时的作业和测验都在 OJ 上布置，上课的形式也是对着 OJ 的题目，边讲解知识点边写代码——他的上课方式在整个学院都是相当特别的。&#xA;我在上大学之前的暑假很认真地学习了翁恺老师 MOOC 上的 C 语言公开课，所以大一的 C 语言课我上得相当轻松。张老师特别的上课方式让我快速熟悉了 OJ 评测系统，并积累了一些调简单程序的技巧；我很快不满足在做课内的 OJ 练习题，而是开始做洛谷的入门题单。&#xA;学校的程序设计迎新赛在 11 月份开始了，我抱着试一试的心态参加了。在我运气大爆发，连续正确猜出两道题目的结论之后，我竟然拿到了迎新赛的银牌。这是校 ACM 集训队的入场券。&#xA;集训队的训练当然是很辛苦的，即便我自认为努力程度远远不够，也同样被集训队的训练压得有些喘不过气。我几乎从来没有享受过一个悠闲的周末，寒暑假期间也有一半的时间需要训练，codeforces 的比赛如果出现在假期，那么我不得不熬夜到一两点钟……当然，那些能在区域赛场上摘金夺银的队伍，他们大多花费了比我更多更多的时间和精力。&#xA;然而，我似乎不是一个适合算法竞赛的选手。我眼里适合算法竞赛的选手，要么具有绝对的天赋，要么对算法竞赛有足够的热情。我显然并不是具有绝对天赋的选手，我对算法竞赛的热情也在学业的压力下慢慢在消退。在算法竞赛生涯的后期，我仍然做题、补题，但是我好像没有足够的热情去学新的算法竞赛知识，大部分时候只是在原地踏步。&#xA;我们学校有一个德育导师的政策，在大二上学期会安排学生和导师双向选择。不过这个德育导师似乎并没有什么实际含义，大部分同学随机选择一位导师签字后，就再也没和老师联系过了。&#xA;我觉得这是一个不错的开始接触科研的机会，所以我很认真地在学院官网上选择了一个导师，发了一封邮件给她。她是学校新来的青年教师，清华大学博士，做安全方向，有非常不错的成果。&#xA;现在回想起来，联系导师可能是区域赛遗憾铜牌的一个伏笔。我联系老师后，老师对我的基本条件比较满意，让我跟着课题组一起做课题。我从那个时候开始跟着老师做一些实验，最开始是复现一些 baseline，到后面慢慢开始比较深度地参与课题研究。这些当然也需要时间。&#xA;时间，时间，我的人生中从来没有像过去的一年里这样缺少过时间。大二这一年的专业课众多，我还花了大量的时间在程序设计竞赛和课题实验上，每门课都只能在考试周之前狼狈地开始突击，常常有作业在 DDL 前几个小时才开始做。&#xA;我的生活狼狈不堪。&#xA;在这段时间里我的体重飞速上涨，精神状态每况愈下，我坚持下去的原因是，我觉得 这一切会有终点 。我的算法竞赛生涯会结束，我的课题研究也会结束，我铺满课表的专业课也会结束；有一天我会到达这一切的终点，在那里我可以坐下来好好休息。&#xA;出发来沈阳的前一天，我和葱葱聊了很久很久。我说我觉得自己想错了，这一切都没有终点。&#xA;是的，我的算法竞赛生涯已经结束了，再也没有训练和补题了；这学期结束之后，下个学期的课表上只有轻松的几门课；我的课题也会在几个月之后接近尾声。&#xA;但是我马上要面对保研，面对夏令营和预推免。那时候我会不会说，再坚持一下，就算我的健康状况越来越差，我的精神快要崩溃？在这之后呢？研究生的终点是毕业，工作的终点又是什么？&#xA;在“终点”之前，我还需要放弃什么？我曾经喜欢写一些文字，读一些书，打篮球，钻研一些新技术只是因为有意思。现在我已经不再写日记和随笔，体重飞涨，为体测能否及格发愁，这个博客的从搭建以来仅有可怜的几篇文章。&#xA;生活是没有终点的。&#xA;飞机要降落了，我马上要回到杭州。&#xA;我原本以为生活会像一连串的短途旅行，飞机上的颠簸和轰鸣声总会在抵达目的地后结束，然后你可以享受鲜花、阳光和清新的空气；但是我错了，生活像是徒步穿越山谷，强撑着酸痛的身体和疲惫的心灵走出山谷，只会发现所有美丽的景色都留在了山谷里，而你已经全部错过。</description>
+      <guid>https://Southern-wood.github.io/post/2024/11/life-never-ends/</guid>
+      <description>&lt;p&gt;写下这些字的时候，我正在从沈阳飞往杭州的飞机上。&lt;/p&gt;
+&lt;p&gt;几个小时前，ICPC 沈阳站的比赛刚刚结束，我们队又拿了一块铜牌。实际上，我们已经有一块 ICPC 成都站的铜牌和一块 CCPC 郑州站的铜牌了，我们都非常想要拿一块银牌。&lt;/p&gt;</description>
     </item>
     <item>
       <title>不是从零开始的 Ubuntu 使用指南</title>
-      <link>https://southern-wood.github.io/post/2024/6/work-on-ubuntu/</link>
+      <link>https://Southern-wood.github.io/post/2024/6/work-on-ubuntu/</link>
       <pubDate>Fri, 07 Jun 2024 15:57:54 +0800</pubDate>
-      <guid>https://southern-wood.github.io/post/2024/6/work-on-ubuntu/</guid>
-      <description>我在去年购入了一台二手的 thinkpad x1 carbon 2018，我在上面安装了 Ubuntu 22.04 LTS，并小小地体验过类 Unix 系统的便利。&#xA;不过，我一直没有下定决心迁移到 Linux 的工作流。这主要因为 Linux 下的软件生态和 Windows 下的软件生态不同，我需要花时间去适应，寻找一些软件的替代品。而作为一个 Linux 菜鸟，任何一个小问题都可能将我卡住，使我被迫花费大量的时间寻找解决方案。&#xA;当然，人是会成长的。现在，我已经在 Ubuntu 的服务器上实际完成过一些小工作，也在 Windows 下使用过 WSL2，有一些基本的命令行操作经验和 Linux 系统的基本知识。我觉得现在是时候将我的工作流从 Windows 转移到 Linux 了。&#xA;因此，我希望声明的是，这篇文章不是一篇从零开始的 Ubuntu 使用指南。我不会介绍如何烧录镜像，如何安装 Ubuntu，如何配置网络，如何安装软件等等。我会假设你已经有一些简单的 Linux 使用经验，或者至少有一定的命令行操作经验。&#xA;这篇文章会是：&#xA;一篇关于 Ubuntu 实用软件的简短使用指南 一篇介绍我如何将工作流从 Windows 转到 Linux 操作系统的博客 一篇介绍如何在 Ubuntu 上安装和使用 Windows 下一些常见软件的文章 这篇文章不会是：&#xA;一篇从烧录镜像开始到搭建可用环境的新手教程 一篇介绍 Ubuntu 系统的高级使用技巧的文章 补充说明：我在这篇博客中使用的操作系统是 Ubuntu24.04 LTS 桌面版。&#xA;Windows 个人常用软件或替代方案 微信 长久以来，微信都没有官方的 Linux 客户端。在 Linux 上使用微信一直是个难题，不过好消息是，现在我们有原生的 WeChat 客户端了。</description>
+      <guid>https://Southern-wood.github.io/post/2024/6/work-on-ubuntu/</guid>
+      <description>&lt;p&gt;我在去年购入了一台二手的 thinkpad x1 carbon 2018，我在上面安装了 Ubuntu 22.04 LTS，并小小地体验过类 Unix 系统的便利。&lt;/p&gt;
+&lt;p&gt;不过，我一直没有下定决心迁移到 Linux 的工作流。这主要因为 Linux 下的软件生态和 Windows 下的软件生态不同，我需要花时间去适应，寻找一些软件的替代品。而作为一个 Linux 菜鸟，任何一个小问题都可能将我卡住，使我被迫花费大量的时间寻找解决方案。&lt;/p&gt;</description>
     </item>
     <item>
       <title>大学生的第 12 周</title>
-      <link>https://southern-wood.github.io/post/2024/5/11st-week/</link>
+      <link>https://Southern-wood.github.io/post/2024/5/11st-week/</link>
       <pubDate>Sun, 19 May 2024 20:42:54 +0800</pubDate>
-      <guid>https://southern-wood.github.io/post/2024/5/11st-week/</guid>
-      <description>我发现大学生一旦过了 11 周，就像个忙碌的章鱼哥：一手做实验，一手写实验报告，一手写期末大作业，一手备考四六级，一手复习期末考试；作业还是写一份来一份的。 &amp;mdash;@Kilolo-🐰&#xA;上面这段文案是我在小红书上找到的。&#xA;我第一次看到这段话是在机场的座椅上。这时是凌晨四点钟，六点我要飞到西安，参加 ICPC 全国邀请赛。机场的安检工作人员还没有上班，我坐在座椅上，百无聊赖，打开 Bilibili 刷起了短视频。我就是这时候看到这段话的。&#xA;视频搬运了小红书上的评论区的评论，几张截图简单地剪辑在一起，就获得了不少的点赞和评论。我不喜欢这样的低创视频，也对这种网络 meme 并不十分感冒，但是这段话确实让我笑了出来。&#xA;一手做实验，一手写实验报告，一手写期末大作业，一手备考四六级，一手复习期末考试。&#xA;很形象，很符合我在过去一周的精神状态；至于为什么不是我的现实状态，那当然是因为我只是精神上的千手观音，现实里的独臂杨过。&#xA;第一次坐飞机 从杭州到西安，这是我第一次坐飞机。&#xA;小时候我大概幻想过在飞机上看地面的风景，但是我现在记不得了，我只好幻想小时候的我会如何幻想飞机上的风景了。&#xA;无论如何，小时候的我一定想不到，坐飞机是要乘上一辆摆渡车的。摆渡车急加速的时候，整个车上的乘客都往后趔趄了两步。我没有站稳，倒到了身后的男生身上。我连忙说 “不好意思，不好意思”，结果他好像比我还着急，还没等我说完，已经抢在前面说了“没关系，没关系”。&#xA;在摆渡车上看到的飞机，并没有我想象中的那么震撼。我觉得，飞机的外壳应该更加锃光发亮，机翼应该更加坚硬可靠，飞机的机身应该更加宽大。但现在飞机就停在我的面前，它的外壳有几处有细微的锈迹，机翼看起来有些脆弱，机身看起来有些狭窄。&#xA;它能飞起来吗？我很愚蠢地想。&#xA;它当然是能飞起来的。飞机起飞的时候，舷窗外的地平线是倾斜的，提示你正在斜向上飞行，从舷窗看出去，能看到地面上的建筑不断地变小、变小，道路上的汽车变得像蚂蚁在爬动……怎么好像我小时候会写的那种《2050 年的世界》式的幻想作文，我现在是不是坐在一辆来自未来的、会飞的智能汽车上？&#xA;飞机深入云层，或者降落时的景象，我不知道，因为我在飞机进入云层前就睡着了。中途醒来，是乘务员一边说着 “餐车经过，请当心，请小心”，一边给我发了茶点的时候，我吃了香蕉片、蛋糕和酸奶，然后又沉沉地睡着了。再醒来，飞机已经降落在西安的机场上，开始滑行了。&#xA;古都西安 因为要参加比赛的缘故，我们没有时间和精力进行一场 “特种兵式” 的旅行。我在西安的这两天，只是在一个小镇的酒店里住了两晚，饭点的时候在周围的巷子里转了转。&#xA;我在西安的第一顿饭，是在一个路边摊子上解决的。摊主是个面相和蔼的阿公，我买了一碗牛筋面，又买了个韭菜粉丝饼；队友买了个茄子肉末饼。我们坐下来没吃两口，阿公问我们，你们是哪里来的呀？&#xA;答曰：浙江过来的。&#xA;阿公笑笑，说：“你们可能吃不惯这个（牛筋面），我们这里叫辣条。”&#xA;我们答：就是来吃西安味道的。&#xA;阿公还是笑，说：“那个饼你们可能能吃，这个辣条可能吃不惯。”&#xA;吃了几口，我觉得他说得很有道理。我吃过的凉皮或者是牛筋面，要放黄瓜、花生和豆芽菜，然后淋上料汁、醋和辣椒油，酸辣可口。眼下这碗辣条，只有辣椒面和面条，辣条并不呛人，但是咸得发慌；前面几口的口味还很新奇，越吃越觉得味道单调。&#xA;我还是把辣条吃完了，为的是给咱们浙江人争气，表示我们能广泛地接受不同的美食。&#xA;附上我到西安第一天的食谱：&#xA;8:00 香蕉片、蛋糕、酸奶 11:00 牛筋面（辣条）、韭菜粉丝饼 13:30 五香肘子肉夹馍（肥瘦相间） 18:00 棍棍面（加油泼辣子） 18:30 健胃消食片 比赛 这里本来应该有一段流水账，记录我们比赛的过程。但是我不愿再回忆这场悲伤的比赛，所以这里只有一个十分简略的小结：&#xA;比赛的前期，因为我读错题目，并且头脑不清醒，在一道签到题上浪费了大量时间，并且贡献了 5 发罚时。&#xA;比赛的中期，得益于队友的稳定发挥，我们解题进度整体上中规中矩。封榜后，我继续顽强拼搏，构造了一道题的关键 hack 数据，并提出了修正方法，成功拿下一题。&#xA;比赛结束后，我们一度以为自己拿到了银牌，但是最终，我们只拿到了一块铜牌，并且是充满遗憾的一块铜牌：我们是铜牌的第一名。&#xA;也许我第一遍能读对题目，也许我能更早地构造hack 数据，也许……也许我应该更勇敢地面对自己的失败。&#xA;失败从来是人生常态，我会划着断桨，再次出发&#xA;这是我离开西北工业大学之后，发在朋友圈的一句话。断桨这个意象一定是我从什么地方挪用的，但我已经不到出处了。&#xA;我不想在博客里进行严谨的考据学研究，总而言之，我会划着断桨，再次出发的。&#xA;大学生的第 12 周 我正在酒店房间里，坐在笔记本电脑前写这篇博客。&#xA;就在刚刚，我的算法分析与设计老师发来了明天上机的任务书。明早的课我已经和她请假了，我们订的是明天最早的飞机票，但是还是赶不上那节课。所以，我要在课外的时间去完成这次上机实验了。&#xA;打开超星学习通，一小时后，数字电路的作业就要截止了，我还没有开始做。实际上，我已经拖欠了好几次作业了&amp;mdash;&amp;mdash;自从我发现，数电作业截止后还能正常提交，我就几乎没有按时交过了。&#xA;周三，截止提交计算方法及实现的一份报告。周四之前，要完成计算机组成原理的课程设计，要编写很折磨人的二进制机器指令。此外，还有计组、数据库、数字电路还有思政课的分组任务，我现在仅仅只是组了队，进度为 0%。当然，还有数字电路的课程设计、计算方法的期末论文、自动控制原理的课程报告……这些都要在接下来的一个月有条不紊地完成。</description>
+      <guid>https://Southern-wood.github.io/post/2024/5/11st-week/</guid>
+      <description>一手打比赛，一手写博客</description>
     </item>
     <item>
       <title>Invariant Rule Baseline 复现</title>
-      <link>https://southern-wood.github.io/post/2024/4/nids/</link>
+      <link>https://Southern-wood.github.io/post/2024/4/nids/</link>
       <pubDate>Tue, 30 Apr 2024 08:42:54 +0800</pubDate>
-      <guid>https://southern-wood.github.io/post/2024/4/nids/</guid>
-      <description>对一篇工业控制系统网络异常检测的论文进行复现，解决了代码效率问题</description>
+      <guid>https://Southern-wood.github.io/post/2024/4/nids/</guid>
+      <description>科研初体验</description>
     </item>
   </channel>
 </rss>
