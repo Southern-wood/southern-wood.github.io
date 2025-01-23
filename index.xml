@@ -15,9 +15,9 @@
     <atom:link href="https://Southern-wood.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何在共享的 Linux 服务器上合理使用资源</title>
-      <link>https://Southern-wood.github.io/post/2024/11/how-to-use-resources-on-a-shared-linux-server/</link>
+      <link>https://Southern-wood.github.io/post/2025/1/how-to-use-resources-on-a-shared-linux-server/</link>
       <pubDate>Thu, 23 Jan 2025 00:00:00 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/post/2024/11/how-to-use-resources-on-a-shared-linux-server/</guid>
+      <guid>https://Southern-wood.github.io/post/2025/1/how-to-use-resources-on-a-shared-linux-server/</guid>
       <description>&lt;p&gt;我目前在外校的网络安全实验室线上实习，实验室有一台共享的 Linux 服务器，我至今为止的所有工作几乎都是在这台服务器上完成的。&lt;/p&gt;
 &lt;p&gt;尽管有一定的 Linux 使用经验，但是我还是在整个实习过程中遇到了比较多的问题。究其原因，使用一台属于自己的 Linux 本地机器，和作为一个普通用户访问共享的 Linux 服务器，这之间还是有较大的区别的。&lt;/p&gt;</description>
     </item>
