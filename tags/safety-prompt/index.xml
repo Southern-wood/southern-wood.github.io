@@ -18,10 +18,8 @@
       <link>https://Southern-wood.github.io/post/2024/5/on-prompt-driven-safeguarding-for-language-models/</link>
       <pubDate>Sun, 26 May 2024 20:42:54 +0800</pubDate>
       <guid>https://Southern-wood.github.io/post/2024/5/on-prompt-driven-safeguarding-for-language-models/</guid>
-      <description>&lt;p&gt;论文链接：&lt;a href=&#34;https://arxiv.org/abs/2401.18018&#34;&gt;arXiv:2401.18018 | Chujie Zheng 等&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;期刊/会议：ICML 2024 (commets)&lt;/p&gt;
-&lt;p&gt;主题：机器学习、人工智能、计算语言学（ML、AI、CL）&lt;/p&gt;
-&lt;p&gt;主要工作：使用 PCA 分析 safety prompts 的工作原理，提出一种新的自动安全优化方法（Directed Representation Optimization）&lt;/p&gt;</description>
+      <description>Handout from group meeting presentation
+On Prompt-Driven Safeguarding for Language Models : 使用 PCA 可视化分析 safety prompts 的工作原理，并基于此提出一种新的自动安全优化方法（Directed Representation Optimization）</description>
     </item>
   </channel>
 </rss>
