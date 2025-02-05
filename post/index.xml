@@ -9,7 +9,7 @@
       <url>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.140.0</generator>
+    <generator>Hugo -- 0.142.0</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 23 Jan 2025 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://Southern-wood.github.io/post/index.xml" rel="self" type="application/rss+xml" />
@@ -43,6 +43,16 @@
       <guid>https://Southern-wood.github.io/post/2024/6/work-on-ubuntu/</guid>
       <description>&lt;p&gt;我在去年购入了一台二手的 thinkpad x1 carbon 2018，我在上面安装了 Ubuntu 22.04 LTS，并小小地体验过类 Unix 系统的便利。&lt;/p&gt;
 &lt;p&gt;不过，我一直没有下定决心迁移到 Linux 的工作流。这主要因为 Linux 下的软件生态和 Windows 下的软件生态不同，我需要花时间去适应，寻找一些软件的替代品。而作为一个 Linux 菜鸟，任何一个小问题都可能将我卡住，使我被迫花费大量的时间寻找解决方案。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paper Share: On Prompt-Driven Safeguarding for Language Models</title>
+      <link>https://Southern-wood.github.io/post/2024/5/on-prompt-driven-safeguarding-for-language-models/</link>
+      <pubDate>Sun, 26 May 2024 20:42:54 +0800</pubDate>
+      <guid>https://Southern-wood.github.io/post/2024/5/on-prompt-driven-safeguarding-for-language-models/</guid>
+      <description>&lt;p&gt;论文链接：&lt;a href=&#34;https://arxiv.org/abs/2401.18018&#34;&gt;arXiv:2401.18018 | Chujie Zheng 等&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;期刊/会议：ICML 2024 (commets)&lt;/p&gt;
+&lt;p&gt;主题：机器学习、人工智能、计算语言学（ML、AI、CL）&lt;/p&gt;
+&lt;p&gt;主要工作：使用 PCA 分析 safety prompts 的工作原理，提出一种新的自动安全优化方法（Directed Representation Optimization）&lt;/p&gt;</description>
     </item>
     <item>
       <title>大学生的第 12 周</title>

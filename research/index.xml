@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Researches on Southern</title>
+    <link>https://Southern-wood.github.io/research/</link>
+    <description>Recent content in Researches on Southern</description>
+    <image>
+      <title>Southern</title>
+      <url>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.142.0</generator>
+    <language>zh</language>
+    <atom:link href="https://Southern-wood.github.io/research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://Southern-wood.github.io/research/ics-security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://Southern-wood.github.io/research/ics-security/</guid>
+      <description>&lt;h1 id=&#34;ics-sercurity-工业控制系统安全&#34;&gt;ICS sercurity 工业控制系统安全&lt;/h1&gt;
+&lt;p&gt;我在 2024.3 - 至今在清华大学网络安全实验室 &lt;strong&gt;线上实习&lt;/strong&gt; ，参与了其中一个工业控制系统安全项目。&lt;/p&gt;
+&lt;p&gt;我对项目的主要贡献是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;复现一些经典论文提出的攻击检测方法，并在我们的数据集和实验设置下进行验证，作为我们论文方法的 baseline。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://Southern-wood.github.io/research/llm-safety/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://Southern-wood.github.io/research/llm-safety/</guid>
+      <description>&lt;h1 id=&#34;llm-sercurity&#34;&gt;LLM sercurity&lt;/h1&gt;
+&lt;p&gt;在实验室实习期间，我曾经尝试独立从调研开始，找到 LLM 安全领域待研究的问题，并完成一个小项目。这个项目目前因计算资源问题，及实验室其他项目的优先级较高，暂时搁置。虽然如此，在这个项目中我阅读了一定量的 LLM security 相关文献，对 LLM 安全领域有了一定的了解。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://Southern-wood.github.io/research/nids/page/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://Southern-wood.github.io/research/nids/page/</guid>
+      <description>&lt;h1 id=&#34;invariant-rule-baseline-复现&#34;&gt;Invariant Rule Baseline 复现&lt;/h1&gt;
+&lt;h2 id=&#34;项目背景&#34;&gt;项目背景&lt;/h2&gt;
+&lt;p&gt;这是清华大学团队的一个项目，和工业互联网的网络异常检测有关。我和另一位网络工程专业的大二本科生一同参与了这个项目，通过线上会议的形式和清华老师进行交流。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://Southern-wood.github.io/research/paper-list/page/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://Southern-wood.github.io/research/paper-list/page/</guid>
+      <description>&lt;h1 id=&#34;paper-waiting-list&#34;&gt;Paper Waiting List&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;em&gt;&lt;a href=&#34;https://arxiv.org/abs/2401.18018&#34;&gt;On Prompt-Driven Safeguarding for Language Models&lt;/a&gt;&lt;/em&gt; 2024.05.26 arXiv &lt;!-- raw HTML omitted --&gt; &lt;strong&gt;LLM safety prompts&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过对模型的隐藏表示进行 PCA 分析，探究了 safety prompts 的工作原理：将所有的查询向模型倾向于拒绝的方向移动。&lt;!-- raw HTML omitted --&gt;基于他们的发现，论文提出了一种新的自动安全优化方法 DRO（Directed Representation Optimization），核心思想是在 PCA 生成的低维空间中找到拒绝方向，在低维空间对 safety prompts 进行优化。
+&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
