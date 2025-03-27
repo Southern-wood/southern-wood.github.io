@@ -2,24 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Safety Prompt on Southern</title>
-    <link>https://Southern-wood.github.io/tags/safety-prompt/</link>
+    <link>http://localhost:1313/tags/safety-prompt/</link>
     <description>Recent content in Safety Prompt on Southern</description>
     <image>
       <title>Southern</title>
-      <url>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.142.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 26 May 2024 20:42:54 +0800</lastBuildDate>
-    <atom:link href="https://Southern-wood.github.io/tags/safety-prompt/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/safety-prompt/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Paper Share: On Prompt-Driven Safeguarding for Language Models</title>
-      <link>https://Southern-wood.github.io/post/2024/5/on-prompt-driven-safeguarding-for-language-models/</link>
+      <title>Paper Sharing: On Prompt-Driven Safeguarding for Language Models</title>
+      <link>http://localhost:1313/post/2024/5/on-prompt-driven-safeguarding-for-language-models/</link>
       <pubDate>Sun, 26 May 2024 20:42:54 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/post/2024/5/on-prompt-driven-safeguarding-for-language-models/</guid>
-      <description>Handout from group meeting presentation
-On Prompt-Driven Safeguarding for Language Models : 使用 PCA 可视化分析 safety prompts 的工作原理，并基于此提出一种新的自动安全优化方法（Directed Representation Optimization）</description>
+      <guid>http://localhost:1313/post/2024/5/on-prompt-driven-safeguarding-for-language-models/</guid>
+      <description>Handout from group meetting. 论文主要工作：使用 PCA 可视化分析 safety prompts 的工作原理，并基于此提出一种新的自动安全优化方法 DRO（Directed Representation Optimization）</description>
     </item>
   </channel>
 </rss>
