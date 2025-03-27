@@ -2,36 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ubuntu on Southern</title>
-    <link>http://localhost:1313/tags/ubuntu/</link>
+    <link>https://Southern-wood.github.io/tags/ubuntu/</link>
     <description>Recent content in Ubuntu on Southern</description>
     <image>
       <title>Southern</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <lastBuildDate>Sat, 21 Dec 2024 00:00:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Benchmarks in Time Series Anormaly Detection</title>
-      <link>http://localhost:1313/post/2024/12/benchmarks-in-time-series-anormaly-detection/</link>
-      <pubDate>Sat, 21 Dec 2024 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/post/2024/12/benchmarks-in-time-series-anormaly-detection/</guid>
-      <description>&lt;p&gt;Time&lt;/p&gt;</description>
-    </item>
+    <atom:link href="https://Southern-wood.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何使用 docker 在 Mac 上运行并配置 Ubuntu</title>
-      <link>http://localhost:1313/post/2024/12/run-ubuntu-on-mac-with-docker/pic/</link>
+      <link>https://Southern-wood.github.io/post/2024/12/run-ubuntu-on-mac-with-docker/pic/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/post/2024/12/run-ubuntu-on-mac-with-docker/pic/</guid>
+      <guid>https://Southern-wood.github.io/post/2024/12/run-ubuntu-on-mac-with-docker/pic/</guid>
       <description>为了完成学校的操作系统设计课程，我需要在 Mac 上运行 Ubuntu 系统。我使用 docker 拉取并运行了一个 Ubuntu 镜像，并在其中配置了 fish shell 和 screenfetch</description>
     </item>
     <item>
       <title>不是从零开始的 Ubuntu 使用指南</title>
-      <link>http://localhost:1313/post/2024/6/work-on-ubuntu/</link>
+      <link>https://Southern-wood.github.io/post/2024/6/work-on-ubuntu/</link>
       <pubDate>Fri, 07 Jun 2024 15:57:54 +0800</pubDate>
-      <guid>http://localhost:1313/post/2024/6/work-on-ubuntu/</guid>
+      <guid>https://Southern-wood.github.io/post/2024/6/work-on-ubuntu/</guid>
       <description>将目前的工作流迁移到 Ubuntu 上，总结一些我在 Windows 上使用的图形化软件在 Ubuntu 上的替代/实现方式</description>
     </item>
   </channel>
