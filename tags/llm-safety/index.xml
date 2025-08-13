@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>LLM Safety on Southern</title>
+    <link>https://Southern-wood.github.io/tags/llm-safety/</link>
+    <description>Recent content in LLM Safety on Southern</description>
+    <image>
+      <title>Southern</title>
+      <url>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.0</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 09 Aug 2025 17:35:00 +0800</lastBuildDate>
+    <atom:link href="https://Southern-wood.github.io/tags/llm-safety/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Sharing: Large Language Model Safety - A Holistic Survey</title>
+      <link>https://Southern-wood.github.io/post/2025/8/llm_safety/</link>
+      <pubDate>Sat, 09 Aug 2025 17:35:00 +0800</pubDate>
+      <guid>https://Southern-wood.github.io/post/2025/8/llm_safety/</guid>
+      <description>&lt;p&gt;论文链接：&lt;a href=&#34;https://arxiv.org/abs/2412.17686&#34;&gt;arXiv:2412.17686 | Dan Shi 等&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;期刊/会议：arXiv preprint&lt;/p&gt;
+&lt;p&gt;主要工作：对大语言模型的安全性进行全面调查，分析现有的安全性挑战和解决方案，并提出未来的研究方向。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

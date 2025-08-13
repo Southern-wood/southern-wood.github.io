@@ -1,0 +1,211 @@
+<div class="cuda-oom-simulation-container">
+  <style>
+    .cuda-oom-simulation-container {
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      /* 可选：动画上下的内边距 */
+      background-color: transparent !important;
+      /* 确保此容器本身背景透明，以融入页面背景 */
+      overflow-x: hidden;
+      /* 如果3D效果在某些情况下导致页面水平滚动条，可以取消此行注释 */
+    }
+
+    .cuda-oom-simulation-container .scene {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cuda-oom-simulation-container .computer {
+      position: relative;
+      transform: perspective(800px) rotateY(-15deg);
+    }
+
+    .cuda-oom-simulation-container .monitor {
+      width: 600px;
+      height: 400px;
+      background: #1a1a1a;
+      /* 显示器外壳颜色 */
+      border: 15px solid #333;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+    }
+
+    .cuda-oom-simulation-container .screen {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      /* 屏幕内部黑色背景 */
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .cuda-oom-simulation-container .screen::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cuda-oom-simulation-container .terminal-header {
+      color: #00ff00;
+      text-align: center;
+      padding-bottom: 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-shadow: 0 0 5px #00ff00;
+    }
+
+    .cuda-oom-simulation-container .error-line {
+      color: #ff4757;
+      font-size: 12px;
+      margin: 2px 0;
+      opacity: 0;
+      animation: cudaOomErrorAppearAnimation 0.1s forwards;
+      font-weight: bold;
+      white-space: pre-wrap;
+    }
+
+    .cuda-oom-simulation-container .stand {
+      width: 60px;
+      height: 80px;
+      background: #333;
+      margin: -10px auto 0;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      position: relative;
+      z-index: -1;
+    }
+
+    .cuda-oom-simulation-container .base {
+      width: 150px;
+      height: 20px;
+      background: #282828;
+      margin: 0 auto;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes cudaOomErrorAppearAnimation {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+
+  <div class="scene">
+    <div class="computer">
+      <div class="monitor">
+        <div class="screen" id="cuda-oom-screen">
+          <div class="terminal-header">🚨 CUDA OOM NIGHTMARE 🚨</div>
+          <div id="cuda-oom-errors"></div>
+        </div>
+      </div>
+      <div class="stand"></div>
+      <div class="base"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const errorMessages = [
+        "RuntimeError: CUDA error: out of memory",
+        "CUDA out of memory. Tried to allocate 2.34 GiB",
+        "ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode 1)",
+        "torch.cuda.OutOfMemoryError: CUDA out of memory.",
+        "Unable to find a valid cuDNN algorithm to run convolution",
+        "Failed to allocate 3.45 GiB on GPU:0 ...",
+        "terminate called after throwing an instance of 'c10::OutOfMemoryError'",
+        "CUDA out of memory. Current memory usage: 23.8/24.0 GiB",
+        "Segmentation fault (core dumped)",
+        "torch.cuda.OutOfMemoryError: out of memory",
+        "PANIC: CUDA kernel failed to launch",
+        "Process terminated due to CUDA OOM. PID: 12345",
+        "cuDNN error: CUDNN_STATUS_NOT_INITIALIZED",
+        "GPU memory exhausted during backward pass.",
+        "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver.",
+        "CUDA out of memory. Consider reducing batch size or model size.",
+        "RuntimeError:cuDNN error: CUDNN_STATUS_ALLOC_FAILED",
+        "OutOfMemoryError: CUDA_ERROR_OUT_OF_MEMORY: out of memory",
+        "CUDA error: device-side assert triggered",
+        "Failed to allocate memory for tensor operations on GPU.",
+        "CUDA OOM: Cannot allocate additional 1.5GB memory. System RAM full?",
+        "Memory allocation failed on device 0. Requested 4.00 GB.",
+        "Kernel panic - not syncing: Out of memory and no killable processes..."
+      ];
+
+      const errorsContainer = document.getElementById('cuda-oom-errors');
+      const screenElement = document.getElementById('cuda-oom-screen');
+
+      if (!errorsContainer || !screenElement) {
+        return;
+      }
+
+      let errorIndex = 0;
+      const repeatDelay = 5000;
+      const maxLinesOnScreen = 30;
+
+      function addCudaErrorLine() {
+        if (errorIndex < errorMessages.length) {
+          const errorDiv = document.createElement('div');
+          errorDiv.className = 'error-line';
+
+          const promptUser = "user@gpu-rig:~/project$ ./run_training.sh";
+          const promptGPU = "nvidia-smi query --gpu=timestamp,name,utilization.gpu,utilization.memory,memory.total,memory.free,memory.used";
+          let lineContent = "";
+
+          if (errorIndex % 7 === 0 && errorIndex !== 0) {
+            lineContent = `<span style="color: #7ed957;">${promptUser}</span>`;
+          } else if (errorIndex % 11 === 0 && errorIndex !== 0) {
+            lineContent = `<span style="color: #57d9a3;">${promptGPU}<br/>  Timestamp: ${new Date().toTimeString().split(' ')[0]}.000, GPU: NVIDIA RTX A6000, Util: 99%, MemUtil: 98%, TotalMem: 48601MiB, FreeMem: 100MiB, UsedMem: 48501MiB</span>`;
+          } else {
+            lineContent = `<span style="color: #ff4757;">[${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}] ${errorMessages[errorIndex]}</span>`;
+          }
+
+          errorDiv.innerHTML = lineContent;
+          errorDiv.style.animationDelay = `${(errorsContainer.children.length % 10) * 0.03}s`;
+
+          errorsContainer.appendChild(errorDiv);
+
+          if (errorsContainer.children.length > maxLinesOnScreen) {
+            if (errorsContainer.firstChild) {
+              errorsContainer.removeChild(errorsContainer.firstChild);
+            }
+          }
+          errorIndex++;
+
+          screenElement.scrollTop = screenElement.scrollHeight;
+
+          setTimeout(addCudaErrorLine, Math.random() * 200 + 70);
+        } else {
+          const restartingMsgDiv = document.createElement('div');
+          restartingMsgDiv.className = 'error-line';
+          restartingMsgDiv.innerHTML = `<span style="color: #ffae42;">----- SIMULATION COMPLETE. RESTARTING IN ${repeatDelay / 1000}s -----</span>`;
+          restartingMsgDiv.style.animationDelay = `0s`;
+          restartingMsgDiv.style.opacity = `1`;
+          errorsContainer.appendChild(restartingMsgDiv);
+          screenElement.scrollTop = screenElement.scrollHeight;
+
+          setTimeout(() => {
+            errorsContainer.innerHTML = '';
+            errorIndex = 0;
+            addCudaErrorLine();
+          }, repeatDelay);
+        }
+      }
+
+      setTimeout(addCudaErrorLine, 500);
+    })();
+  </script>
+</div>
