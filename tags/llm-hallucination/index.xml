@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Handout on Southern</title>
-    <link>https://Southern-wood.github.io/categories/handout/</link>
-    <description>Recent content in Handout on Southern</description>
+    <title>LLM Hallucination on Southern</title>
+    <link>https://Southern-wood.github.io/tags/llm-hallucination/</link>
+    <description>Recent content in LLM Hallucination on Southern</description>
     <image>
       <title>Southern</title>
       <url>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.147.0</generator>
     <language>zh</language>
     <lastBuildDate>Thu, 16 Oct 2025 17:35:00 +0800</lastBuildDate>
-    <atom:link href="https://Southern-wood.github.io/categories/handout/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://Southern-wood.github.io/tags/llm-hallucination/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Paper Sharing: LLM Hallucination</title>
       <link>https://Southern-wood.github.io/post/2025/10/llm_halu/</link>
@@ -25,22 +25,6 @@
 &lt;li&gt;LLM Hallucination: 指的是大语言模型生成与事实不符、或者没有依据的内容&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;虽然幻觉的定义已经扩展到更广泛的范围，但是这篇 Nature 的工作主要讨论虚假认知（confabulations），特征是模型以准确、武断的方式生成错误并且随机的信息。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Paper Sharing: Large Language Model Safety - A Holistic Survey</title>
-      <link>https://Southern-wood.github.io/post/2025/8/llm_safety/</link>
-      <pubDate>Sat, 09 Aug 2025 17:35:00 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/post/2025/8/llm_safety/</guid>
-      <description>&lt;p&gt;论文链接：&lt;a href=&#34;https://arxiv.org/abs/2412.17686&#34;&gt;arXiv:2412.17686 | Dan Shi 等&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;期刊/会议：arXiv preprint&lt;/p&gt;
-&lt;p&gt;主要工作：对大语言模型的安全性进行全面调查，分析现有的安全性挑战和解决方案，并提出未来的研究方向。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Paper Sharing: On Prompt-Driven Safeguarding for Language Models</title>
-      <link>https://Southern-wood.github.io/post/2024/5/on-prompt-driven-safeguarding-for-language-models/</link>
-      <pubDate>Sun, 26 May 2024 20:42:54 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/post/2024/5/on-prompt-driven-safeguarding-for-language-models/</guid>
-      <description>Handout from group meetting. 论文主要工作：使用 PCA 可视化分析 safety prompts 的工作原理，并基于此提出一种新的自动安全优化方法 DRO（Directed Representation Optimization）</description>
     </item>
   </channel>
 </rss>
