@@ -1,1 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Life on Wood's Blog</title><link>https:/Southern-wood.github.io/tags/life/</link><description>Recent content in Life on Wood's Blog</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 25 Nov 2024 00:00:00 +0800</lastBuildDate><atom:link href="https:/Southern-wood.github.io/tags/life/index.xml" rel="self" type="application/rss+xml"/><item><title>生活没有终点</title><link>https:/Southern-wood.github.io/posts/2024-11-25_life-never-ends/</link><pubDate>Mon, 25 Nov 2024 00:00:00 +0800</pubDate><guid>https:/Southern-wood.github.io/posts/2024-11-25_life-never-ends/</guid><description>算法竞赛生涯结束了，但我要开始一段新的旅途了</description></item><item><title>大学生的第 12 周</title><link>https:/Southern-wood.github.io/posts/2024-05-19_11st-week/</link><pubDate>Sun, 19 May 2024 20:42:54 +0800</pubDate><guid>https:/Southern-wood.github.io/posts/2024-05-19_11st-week/</guid><description>大学生一旦过了 11 周，就像个忙碌的章鱼哥</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Life on Wood&#39;s Blog</title>
+    <link>https:/Southern-wood.github.io/tags/life/</link>
+    <description>Recent content in Life on Wood&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 Nov 2024 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https:/Southern-wood.github.io/tags/life/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>生活没有终点</title>
+      <link>https:/Southern-wood.github.io/posts/2024-11-25_life-never-ends/</link>
+      <pubDate>Mon, 25 Nov 2024 00:00:00 +0800</pubDate>
+      <guid>https:/Southern-wood.github.io/posts/2024-11-25_life-never-ends/</guid>
+      <description>算法竞赛生涯结束了，但我要开始一段新的旅途了</description>
+    </item>
+    <item>
+      <title>大学生的第 12 周</title>
+      <link>https:/Southern-wood.github.io/posts/2024-05-19_11st-week/</link>
+      <pubDate>Sun, 19 May 2024 20:42:54 +0800</pubDate>
+      <guid>https:/Southern-wood.github.io/posts/2024-05-19_11st-week/</guid>
+      <description>大学生一旦过了 11 周，就像个忙碌的章鱼哥</description>
+    </item>
+  </channel>
+</rss>

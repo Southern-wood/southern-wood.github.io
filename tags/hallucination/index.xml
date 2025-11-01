@@ -1,26 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hallucination on Wood's Blog</title><link>https:/Southern-wood.github.io/tags/hallucination/</link><description>Recent content in Hallucination on Wood's Blog</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 26 Oct 2025 20:42:54 +0800</lastBuildDate><atom:link href="https:/Southern-wood.github.io/tags/hallucination/index.xml" rel="self" type="application/rss+xml"/><item><title>Paper Sharing: Hallucination in LLMs</title><link>https:/Southern-wood.github.io/handouts/2025-10-26_llm_halu/</link><pubDate>Sun, 26 Oct 2025 20:42:54 +0800</pubDate><guid>https:/Southern-wood.github.io/handouts/2025-10-26_llm_halu/</guid><description>&lt;p&gt;论文链接：&lt;a href="https://www.nature.com/articles/s41586-024-07421-0"&gt;Nature 2024 | Detecting hallucinations in large language models using semantic entropy&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;期刊/会议：Nature 2024&lt;/p&gt;
-&lt;h2 id="基础定义"&gt;基础定义&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;LLM Hallucination: 指的是大语言模型生成与事实不符、或者没有依据的内容&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;虽然幻觉的定义已经扩展到更广泛的范围，但是这篇 Nature 的工作主要讨论虚假认知（confabulations），特征是模型以准确、武断的方式生成错误并且随机的信息。&lt;/p&gt;
-&lt;p&gt;Tip: 这里的“随机”是一个重要的特征，它指的是模型对同一个问题，在多次采样时会随机输出不同的答案（可能包含正确答案）。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-txt" data-lang="txt"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;What is the target of Sotorasib? 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;（Sotorasib 的作用靶点是什么？）
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;- KRAS G12C (正确)
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;- KRAS G12D (错误)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这意味着如下的“幻觉”不在讨论范围内：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在训练数据中广泛存在的错误信息、常见误会&lt;/li&gt;
-&lt;li&gt;模型由于追求 reward 而产生的欺骗性行为（See &lt;a href="https://openai.com/index/why-language-models-hallucinate/"&gt;OpenAI：Why language models hallucinate?&lt;/a&gt;）&lt;/li&gt;
-&lt;li&gt;系统性错误（Systematic errors），模型推理、泛化失败产生的错误，即问题本身超出了模型能力or模型从未在训练数据中见过对应的知识&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="主要目标"&gt;主要目标&lt;/h2&gt;
-&lt;p&gt;这篇文章主要目标是开发一种检测方法，对于给定的 prompt 和一个模型，在没有外部知识参与的情况下，判断该 prompt 在多大程度上会导致模型产生幻觉（随机的错误输出）。&lt;/p&gt;
-&lt;h2 id="main-idea"&gt;Main Idea&lt;/h2&gt;
-&lt;p&gt;由于本篇论文的主要目标是检测随机的错误输出，因此一个最直观的思路是采用基于不确定性的度量方法。对于同一个 prompt，可以通过测量大模型多次采样输出的不确定性来判断该 prompt 是否会导致幻觉。&lt;/p&gt;
-&lt;h3 id="朴素熵naive-entropy"&gt;朴素熵（Naive Entropy）&lt;/h3&gt;
-&lt;p&gt;大模型输出不确定性可以通过最朴素的方法度量，即计算输出文本的熵（Entropy）。&lt;/p&gt;
-&lt;p&gt;具体来说，对于一个给定的 prompt x，可以多次采样模型的输出，得到一组输出文本 ${y_1, y_2, \ldots, y_n}$，随后计算每个 QA 对（x, y_i）在模型输出中的概率分布 P(y|x),
-（这可以通过计算每个输出文本的对数似然值（Log-Likelihood, LL）来实现），然后计算概率分布的熵来度量不确定性。&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hallucination on Wood&#39;s Blog</title>
+    <link>https:/Southern-wood.github.io/tags/hallucination/</link>
+    <description>Recent content in Hallucination on Wood&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 26 Oct 2025 20:42:54 +0800</lastBuildDate>
+    <atom:link href="https:/Southern-wood.github.io/tags/hallucination/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper Sharing: Hallucination in LLMs</title>
+      <link>https:/Southern-wood.github.io/handouts/2025-10-26_llm_halu/</link>
+      <pubDate>Sun, 26 Oct 2025 20:42:54 +0800</pubDate>
+      <guid>https:/Southern-wood.github.io/handouts/2025-10-26_llm_halu/</guid>
+      <description>&lt;p&gt;论文链接：&lt;a href=&#34;https://www.nature.com/articles/s41586-024-07421-0&#34;&gt;Nature 2024 | Detecting hallucinations in large language models using semantic entropy&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;期刊/会议：Nature 2024&lt;/p&gt;&#xA;&lt;h2 id=&#34;基础定义&#34;&gt;基础定义&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;LLM Hallucination: 指的是大语言模型生成与事实不符、或者没有依据的内容&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;虽然幻觉的定义已经扩展到更广泛的范围，但是这篇 Nature 的工作主要讨论虚假认知（confabulations），特征是模型以准确、武断的方式生成错误并且随机的信息。&lt;/p&gt;&#xA;&lt;p&gt;Tip: 这里的“随机”是一个重要的特征，它指的是模型对同一个问题，在多次采样时会随机输出不同的答案（可能包含正确答案）。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;What is the target of Sotorasib? &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;（Sotorasib 的作用靶点是什么？）&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- KRAS G12C (正确)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- KRAS G12D (错误)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这意味着如下的“幻觉”不在讨论范围内：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;在训练数据中广泛存在的错误信息、常见误会&lt;/li&gt;&#xA;&lt;li&gt;模型由于追求 reward 而产生的欺骗性行为（See &lt;a href=&#34;https://openai.com/index/why-language-models-hallucinate/&#34;&gt;OpenAI：Why language models hallucinate?&lt;/a&gt;）&lt;/li&gt;&#xA;&lt;li&gt;系统性错误（Systematic errors），模型推理、泛化失败产生的错误，即问题本身超出了模型能力or模型从未在训练数据中见过对应的知识&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;主要目标&#34;&gt;主要目标&lt;/h2&gt;&#xA;&lt;p&gt;这篇文章主要目标是开发一种检测方法，对于给定的 prompt 和一个模型，在没有外部知识参与的情况下，判断该 prompt 在多大程度上会导致模型产生幻觉（随机的错误输出）。&lt;/p&gt;&#xA;&lt;h2 id=&#34;main-idea&#34;&gt;Main Idea&lt;/h2&gt;&#xA;&lt;p&gt;由于本篇论文的主要目标是检测随机的错误输出，因此一个最直观的思路是采用基于不确定性的度量方法。对于同一个 prompt，可以通过测量大模型多次采样输出的不确定性来判断该 prompt 是否会导致幻觉。&lt;/p&gt;&#xA;&lt;h3 id=&#34;朴素熵naive-entropy&#34;&gt;朴素熵（Naive Entropy）&lt;/h3&gt;&#xA;&lt;p&gt;大模型输出不确定性可以通过最朴素的方法度量，即计算输出文本的熵（Entropy）。&lt;/p&gt;&#xA;&lt;p&gt;具体来说，对于一个给定的 prompt x，可以多次采样模型的输出，得到一组输出文本 ${y_1, y_2, \ldots, y_n}$，随后计算每个 QA 对（x, y_i）在模型输出中的概率分布 P(y|x),&#xA;（这可以通过计算每个输出文本的对数似然值（Log-Likelihood, LL）来实现），然后计算概率分布的熵来度量不确定性。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

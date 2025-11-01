@@ -1,33 +1,375 @@
-<!doctype html><html lang=en><head><title>如何使用 docker 在 Mac 上运行并配置 Ubuntu :: Wood's Blog</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="为了完成学校的操作系统设计课程，我需要在 Mac 上运行 Ubuntu 系统。我使用 docker 拉取并运行了一个 Ubuntu 镜像，并在其中配置了 fish shell 和 screenfetch"><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=https:/Southern-wood.github.io/posts/2024-04-30_run-ubuntu-on-mac-with-docker/pic/><link rel=stylesheet href=https:/Southern-wood.github.io/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/syntax.min.a0773cce9310cb6d8ed23e50f005448facf29a53001b57e038828daa466b25c0.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css><link rel=stylesheet href=https:/Southern-wood.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css><link rel="shortcut icon" href=https:/Southern-wood.github.io/favicon.png><link rel=apple-touch-icon href=https:/Southern-wood.github.io/apple-touch-icon.png><meta name=twitter:card content="summary"><meta name=twitter:site content><meta name=twitter:creator content><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="og:title" content="如何使用 docker 在 Mac 上运行并配置 Ubuntu"><meta property="og:description" content="为了完成学校的操作系统设计课程，我需要在 Mac 上运行 Ubuntu 系统。我使用 docker 拉取并运行了一个 Ubuntu 镜像，并在其中配置了 fish shell 和 screenfetch"><meta property="og:url" content="https:/Southern-wood.github.io/posts/2024-04-30_run-ubuntu-on-mac-with-docker/pic/"><meta property="og:site_name" content="Wood's Blog"><meta property="og:image" content="https:/Southern-wood.github.io/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="627"><meta property="article:section" content="tech blog"><meta property="article:published_time" content="2024-12-21 00:00:00 +0800 +0800"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css crossorigin=anonymous><style>.katex-display{margin:1rem 0}.katex{font-size:.95em}</style></head><body><div class="container center"><header class=header><div class=header__inner><div class=header__logo><a href=/><div class=logo>Wood's Blog</div></a></div><ul class="menu menu--mobile"><li class=menu__trigger>Menu&nbsp;▾</li><li><ul class=menu__dropdown><li><a href=/Southern-wood.github.io/bio>Biography</a></li><li><a href=/Southern-wood.github.io/>Blog</a></li><li><a href=/Southern-wood.github.io/handouts>Handouts</a></li></ul></li></ul></div><nav class=navigation-menu><ul class="navigation-menu__inner menu--desktop"><li><a href=/Southern-wood.github.io/bio>Biography</a></li><li><a href=/Southern-wood.github.io/>Blog</a></li><li><a href=/Southern-wood.github.io/handouts>Handouts</a></li></ul></nav></header><div class=content><article class=post><h1 class=post-title><a href=https:/Southern-wood.github.io/posts/2024-04-30_run-ubuntu-on-mac-with-docker/pic/>如何使用 docker 在 Mac 上运行并配置 Ubuntu</a></h1><div class=post-meta><time class=post-date>2024-12-21&nbsp;[Updated 2024-12-21]</time><span class=post-reading-time>2 min read (325 words)</span></div><span class=post-tags>#<a href=https:/Southern-wood.github.io/tags/docker/>docker</a>&nbsp;
-#<a href=https:/Southern-wood.github.io/tags/ubuntu/>ubuntu</a>&nbsp;
-#<a href=https:/Southern-wood.github.io/tags/fish/>fish</a>&nbsp;
-#<a href=https:/Southern-wood.github.io/tags/screenfetch/>screenfetch</a>&nbsp;</span><div class=post-content><div><h2 id=背景>背景<a href=#背景 class=hanchor arialabel=Anchor>#</a></h2><p>我校的操作系统课程设计是斯坦福大学的 pintos 项目（当然只需要完成少量的 project）。pintos 需要在 x86 架构的 Linux 系统上运行，但是我最近主力使用的是一台 Macbook Pro，我不太愿意每天背着两台电脑去图书馆。</p><p>我原本的设想是把我运行 Ubuntu 机器放在宿舍，通过校园网 ssh 连接到它。但是这样做有两个问题：</p><ol><li>校园网的网络环境不太好，即使是使用代理也无法保证一些软件源的稳定连接。</li><li>学校最近在进行消防安全检查，不允许离开宿舍时不断电源，而我没法保证宿舍时刻都有人。</li></ol><p>看起来，我只能在 Mac 上跑一个虚拟机了；然而我不太喜欢使用虚拟机的使用体验：在运行时占用太多的内存，启动或者关闭需要等待太长的时间。我希望有一个更轻量的解决方案。</p><p>最近，我关注的 up 主 <a href=https://space.bilibili.com/13081489>@TheCW</a> 在沉寂了一年之后忽然更新了一个视频。我重新回看了他之前发布的几个视频后，忽然发现他在 Mac 上需要一个 Linux 环境时，直接用 docker run 了一个全新的 Ubuntu 镜像，这个方法看起来非常轻巧——非常适合我。</p><p>下文是我在 Mac 上使用 docker 运行 Ubuntu 的步骤。</p><h2 id=安装-docker-desktop-for-mac>安装 Docker Desktop for Mac<a href=#安装-docker-desktop-for-mac class=hanchor arialabel=Anchor>#</a></h2><p>访问 <a href=https://www.docker.com/products/docker-desktop>Docker 官网</a> 下载 Docker Desktop for Mac 即可，这部分不再赘述。</p><h2 id=下载并运行-ubuntu-镜像>下载并运行 Ubuntu 镜像<a href=#下载并运行-ubuntu-镜像 class=hanchor arialabel=Anchor>#</a></h2><p>在终端中输入以下命令来拉取 Ubuntu 镜像：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker pull --platform linux/amd64 ubuntu
-</span></span></code></pre></div><p>我使用 &ndash;platform 来指定镜像的架构，因为我需要一个 x86 架构的镜像；如果直接使用 <code>docker pull ubuntu</code>，docker 会默认自动选择当前机器的架构，这对我来说当然是不行的。</p><p>拉取完成后，运行以下命令来启动一个新的 Ubuntu 容器：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>docker run --platform linux/amd64 -it ubuntu /bin/bash
-</span></span></code></pre></div><p>这个命令会启动一个新的 Ubuntu 容器，并且进入 bash shell。不过，这个容器还是一个全新的、仅包含最基本软件的 Ubuntu 系统，它看起来应该是这样的：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>wood@Woods-MacBook-Pro ~&gt; docker <span class=nb>exec</span> -it ubuntu bash
-</span></span><span class=line><span class=cl>root@8d907eeb-----:/# 
-</span></span></code></pre></div><p>如果需要退出容器，使用 <code>exit</code> 命令。</p><p>如果要重新进入容器，可以使用 <code>docker ps -a</code> 查看容器的 ID，然后使用 <code>docker start &lt;container-id></code> 和 <code>docker attach &lt;container-id></code> 命令。</p><p>我们首先应该要新建一个用户，因为 root 用户不应该用于日常操作。在容器中依次以下命令：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apt update
-</span></span><span class=line><span class=cl>apt install sudo adduser
-</span></span><span class=line><span class=cl>adduser &lt;your-username&gt;
-</span></span></code></pre></div><p>如果你在 apt update 时遇到了网络问题，可以尝试更换软件源，或者使用代理（参看<a href=/Southern-wood.github.io/posts/2024-04-30_run-ubuntu-on-mac-with-docker/pic/#%e9%85%8d%e7%bd%ae-docker-%e5%ae%b9%e5%99%a8%e4%bb%a3%e7%90%86>代理 Docker 容器</a>）。</p><p>在按照提示设置密码和其他信息后，我们需要将新建的用户加入 sudo 组：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>usermod -aG sudo &lt;your-username&gt;
-</span></span></code></pre></div><p>使用 su 命令切换到新建的用户，并测试一下 sudo 是否正常工作：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>su - &lt;your-username&gt;
-</span></span><span class=line><span class=cl>sudo whoami
-</span></span></code></pre></div><p>如果输出为 <code>root</code>，则说明 sudo 已经正常工作。</p><h2 id=docker-快捷命令>Docker 快捷命令<a href=#docker-快捷命令 class=hanchor arialabel=Anchor>#</a></h2><p>在继续配置 Ubuntu 容器之前，我想先让启动和退出容器更加方便。</p><p>首先使用 <code>docker ps -a</code> 查看容器的 ID，然后使用 <code>docker rename &lt;container-id> ubuntu</code> 命令为容器设置别名为 ubuntu。</p><p>随后，我在 <code>~/.config/fish/config.fish</code> 中添加了以下两个 alias：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fish data-lang=fish><span class=line><span class=cl><span class=nb>alias </span>ubuntu <span class=s1>&#39;docker start ubuntu &amp;&amp; docker attach ubuntu&#39;</span>
-</span></span><span class=line><span class=cl><span class=nb>alias </span>ubuntu-stop <span class=s1>&#39;docker stop ubuntu&#39;</span>
-</span></span></code></pre></div><p>运行 <code>source ~/.config/fish/config.fish</code> 使配置生效。</p><p>ps: 如果你使用的是 bash，可以将 alias 添加到 <code>~/.bashrc</code> 中，并运行 <code>source ~/.bashrc</code>，注意，bash 的 alias 语法和 fish 有所不同，需要使用一个 <code>=</code> 号：<code>alias ubuntu='docker start ubuntu && docker attach ubuntu'</code>。</p><h2 id=配置-ubuntu-容器>配置 Ubuntu 容器<a href=#配置-ubuntu-容器 class=hanchor arialabel=Anchor>#</a></h2><h3 id=fish-shell>fish shell<a href=#fish-shell class=hanchor arialabel=Anchor>#</a></h3><p>我习惯使用 fish shell，并以 fish 为默认 shell。在容器中，我首先安装了 fish shell：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt install fish
-</span></span></code></pre></div><p>我没有使用 <code>chsh</code> 命令来更改默认 shell，而是直接修改了对 <code>ubuntu</code> 命令的 alias：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>alias</span> ubuntu <span class=s2>&#34;docker start ubuntu &amp;&amp; \
-</span></span></span><span class=line><span class=cl><span class=s2>docker exec -it --user &lt;your-username&gt; \
-</span></span></span><span class=line><span class=cl><span class=s2>ubuntu fish -C &#39;cd ~&#39;&#34;</span>
-</span></span></code></pre></div><p>这样，每次进入容器时，都会以普通用户的身份进入 fish shell，并且进入到用户目录。</p><p>到这里，我已经接近了日常使用 Ubuntu 的体验。</p><h3 id=screenfetch>screenfetch<a href=#screenfetch class=hanchor arialabel=Anchor>#</a></h3><p>我喜欢登陆时看到 screenfetch，诚实地说，是因为这满足了我小时候对“黑客”的幻想。</p><p>我需要在 Docker 容器中安装 screenfetch，然后在 fish 的配置文件中添加 screenfetch 命令。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt install screenfetch
-</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;screenfetch 2&gt;/dev/null&#34;</span> &gt;&gt; ~/.config/fish/config.fish
-</span></span></code></pre></div><p>这里，因为 screenfetch 无法访问宿主机的信息，会显示一行错误信息，所以我在 screenfetch 命令后面加了一个 <code>2>/dev/null</code> 来丢弃错误信息。</p><p>我说，谁能拒绝一个 screenfetch 呢？</p><p><img src=/Southern-wood.github.io/posts/2024-04-30_run-ubuntu-on-mac-with-docker/pic/pic/screen.png alt=screenfetch></p><h2 id=配置-docker-容器代理>配置 Docker 容器代理<a href=#配置-docker-容器代理 class=hanchor arialabel=Anchor>#</a></h2><p>注意，这不是代理 Docker 的软件源，而是代理 Docker 容器内的网络。</p><p>编辑 <code>~/.docker/config.json</code> 文件，添加以下内容：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=nt>&#34;proxies&#34;</span><span class=p>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nt>&#34;default&#34;</span><span class=p>:</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>     <span class=nt>&#34;httpProxy&#34;</span><span class=p>:</span> <span class=s2>&#34;http://proxy.example.com:8080&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>     <span class=nt>&#34;httpsProxy&#34;</span><span class=p>:</span> <span class=s2>&#34;http://proxy.example.com:8080&#34;</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><p>这里的 <code>httpProxy</code> 和 <code>httpsProxy</code> 需要根据你实际的代理设置进行修改。</p></div></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><a href=https:/Southern-wood.github.io/posts/2025-01-23_how-to-use-resources-on-a-shared-linux-server/ class="button inline prev">&lt; [<span class=button__text>如何在共享的 Linux 服务器上合理使用资源</span>]
-</a>::
-<a href=https:/Southern-wood.github.io/posts/2024-11-25_life-never-ends/ class="button inline next">[<span class=button__text>生活没有终点</span>] ></a></div></div></article></div><footer class=footer><div class=footer__inner><div class=copyright><span>© 2025 Powered by <a href=https://gohugo.io>Hugo</a></span>
-<span>:: <a href=https://github.com/panr/hugo-theme-terminal target=_blank>Theme</a> made by <a href=https://github.com/panr target=_blank>panr</a></span></div></div></footer><script type=text/javascript src=/Southern-wood.github.io/bundle.min.js></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js crossorigin=anonymous></script><script>(function(){function e(){if(typeof renderMathInElement!="function")return;try{renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],ignoredTags:["script","noscript","style","textarea","pre","code"]})}catch(e){console&&console.error&&console.error("KaTeX render error",e)}}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",e):e()})()</script></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>如何使用 docker 在 Mac 上运行并配置 Ubuntu :: Wood&#39;s Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="为了完成学校的操作系统设计课程，我需要在 Mac 上运行 Ubuntu 系统。我使用 docker 拉取并运行了一个 Ubuntu 镜像，并在其中配置了 fish shell 和 screenfetch" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https:/Southern-wood.github.io/posts/2024-04-30_run-ubuntu-on-mac-with-docker/pic/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/syntax.min.a0773cce9310cb6d8ed23e50f005448facf29a53001b57e038828daa466b25c0.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="https:/Southern-wood.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="https:/Southern-wood.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https:/Southern-wood.github.io/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="如何使用 docker 在 Mac 上运行并配置 Ubuntu">
+<meta property="og:description" content="为了完成学校的操作系统设计课程，我需要在 Mac 上运行 Ubuntu 系统。我使用 docker 拉取并运行了一个 Ubuntu 镜像，并在其中配置了 fish shell 和 screenfetch" />
+<meta property="og:url" content="https:/Southern-wood.github.io/posts/2024-04-30_run-ubuntu-on-mac-with-docker/pic/" />
+<meta property="og:site_name" content="Wood&#39;s Blog" />
+
+  <meta property="og:image" content="https:/Southern-wood.github.io/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+  <meta property="article:section" content="tech blog" />
+
+
+  <meta property="article:published_time" content="2024-12-21 00:00:00 &#43;0800 &#43;0800" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" crossorigin="anonymous">
+
+<style>
+ 
+.katex-display { margin: 1rem 0; }
+.katex { font-size: 0.95em; }
+</style>
+
+
+</head>
+<body>
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Wood&#39;s Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/Southern-wood.github.io/bio">Biography</a></li>
+        
+      
+        
+          <li><a href="/Southern-wood.github.io/">Blog</a></li>
+        
+      
+        
+          <li><a href="/Southern-wood.github.io/handouts">Handouts</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/Southern-wood.github.io/bio" >Biography</a></li>
+        
+      
+        
+          <li><a href="/Southern-wood.github.io/" >Blog</a></li>
+        
+      
+        
+          <li><a href="/Southern-wood.github.io/handouts" >Handouts</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https:/Southern-wood.github.io/posts/2024-04-30_run-ubuntu-on-mac-with-docker/pic/">如何使用 docker 在 Mac 上运行并配置 Ubuntu</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2024-12-21&nbsp;[Updated 2024-12-21]</time><span class="post-reading-time">2 min read (325 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https:/Southern-wood.github.io/tags/docker/">docker</a>&nbsp;
+      
+      #<a href="https:/Southern-wood.github.io/tags/ubuntu/">ubuntu</a>&nbsp;
+      
+      #<a href="https:/Southern-wood.github.io/tags/fish/">fish</a>&nbsp;
+      
+      #<a href="https:/Southern-wood.github.io/tags/screenfetch/">screenfetch</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="背景">背景<a href="#背景" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>我校的操作系统课程设计是斯坦福大学的 pintos 项目（当然只需要完成少量的 project）。pintos 需要在 x86 架构的 Linux 系统上运行，但是我最近主力使用的是一台 Macbook Pro，我不太愿意每天背着两台电脑去图书馆。</p>
+<p>我原本的设想是把我运行 Ubuntu 机器放在宿舍，通过校园网 ssh 连接到它。但是这样做有两个问题：</p>
+<ol>
+<li>校园网的网络环境不太好，即使是使用代理也无法保证一些软件源的稳定连接。</li>
+<li>学校最近在进行消防安全检查，不允许离开宿舍时不断电源，而我没法保证宿舍时刻都有人。</li>
+</ol>
+<p>看起来，我只能在 Mac 上跑一个虚拟机了；然而我不太喜欢使用虚拟机的使用体验：在运行时占用太多的内存，启动或者关闭需要等待太长的时间。我希望有一个更轻量的解决方案。</p>
+<p>最近，我关注的 up 主 <a href="https://space.bilibili.com/13081489">@TheCW</a> 在沉寂了一年之后忽然更新了一个视频。我重新回看了他之前发布的几个视频后，忽然发现他在 Mac 上需要一个 Linux 环境时，直接用 docker run 了一个全新的 Ubuntu 镜像，这个方法看起来非常轻巧——非常适合我。</p>
+<p>下文是我在 Mac 上使用 docker 运行 Ubuntu 的步骤。</p>
+<h2 id="安装-docker-desktop-for-mac">安装 Docker Desktop for Mac<a href="#安装-docker-desktop-for-mac" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>访问 <a href="https://www.docker.com/products/docker-desktop">Docker 官网</a> 下载 Docker Desktop for Mac 即可，这部分不再赘述。</p>
+<h2 id="下载并运行-ubuntu-镜像">下载并运行 Ubuntu 镜像<a href="#下载并运行-ubuntu-镜像" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>在终端中输入以下命令来拉取 Ubuntu 镜像：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker pull --platform linux/amd64 ubuntu
+</span></span></code></pre></div><p>我使用 &ndash;platform 来指定镜像的架构，因为我需要一个 x86 架构的镜像；如果直接使用 <code>docker pull ubuntu</code>，docker 会默认自动选择当前机器的架构，这对我来说当然是不行的。</p>
+<p>拉取完成后，运行以下命令来启动一个新的 Ubuntu 容器：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --platform linux/amd64 -it ubuntu /bin/bash
+</span></span></code></pre></div><p>这个命令会启动一个新的 Ubuntu 容器，并且进入 bash shell。不过，这个容器还是一个全新的、仅包含最基本软件的 Ubuntu 系统，它看起来应该是这样的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wood@Woods-MacBook-Pro ~&gt; docker <span class="nb">exec</span> -it ubuntu bash
+</span></span><span class="line"><span class="cl">root@8d907eeb-----:/# 
+</span></span></code></pre></div><p>如果需要退出容器，使用 <code>exit</code> 命令。</p>
+<p>如果要重新进入容器，可以使用 <code>docker ps -a</code> 查看容器的 ID，然后使用 <code>docker start &lt;container-id&gt;</code> 和 <code>docker attach &lt;container-id&gt;</code> 命令。</p>
+<p>我们首先应该要新建一个用户，因为 root 用户不应该用于日常操作。在容器中依次以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt update
+</span></span><span class="line"><span class="cl">apt install sudo adduser
+</span></span><span class="line"><span class="cl">adduser &lt;your-username&gt;
+</span></span></code></pre></div><p>如果你在 apt update 时遇到了网络问题，可以尝试更换软件源，或者使用代理（参看<a href="/Southern-wood.github.io/posts/2024-04-30_run-ubuntu-on-mac-with-docker/pic/#%e9%85%8d%e7%bd%ae-docker-%e5%ae%b9%e5%99%a8%e4%bb%a3%e7%90%86">代理 Docker 容器</a>）。</p>
+<p>在按照提示设置密码和其他信息后，我们需要将新建的用户加入 sudo 组：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">usermod -aG sudo &lt;your-username&gt;
+</span></span></code></pre></div><p>使用 su 命令切换到新建的用户，并测试一下 sudo 是否正常工作：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">su - &lt;your-username&gt;
+</span></span><span class="line"><span class="cl">sudo whoami
+</span></span></code></pre></div><p>如果输出为 <code>root</code>，则说明 sudo 已经正常工作。</p>
+<h2 id="docker-快捷命令">Docker 快捷命令<a href="#docker-快捷命令" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>在继续配置 Ubuntu 容器之前，我想先让启动和退出容器更加方便。</p>
+<p>首先使用 <code>docker ps -a</code> 查看容器的 ID，然后使用 <code>docker rename &lt;container-id&gt; ubuntu</code> 命令为容器设置别名为 ubuntu。</p>
+<p>随后，我在 <code>~/.config/fish/config.fish</code> 中添加了以下两个 alias：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fish" data-lang="fish"><span class="line"><span class="cl"><span class="nb">alias </span>ubuntu <span class="s1">&#39;docker start ubuntu &amp;&amp; docker attach ubuntu&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias </span>ubuntu-stop <span class="s1">&#39;docker stop ubuntu&#39;</span>
+</span></span></code></pre></div><p>运行 <code>source ~/.config/fish/config.fish</code> 使配置生效。</p>
+<p>ps: 如果你使用的是 bash，可以将 alias 添加到 <code>~/.bashrc</code> 中，并运行 <code>source ~/.bashrc</code>，注意，bash 的 alias 语法和 fish 有所不同，需要使用一个 <code>=</code> 号：<code>alias ubuntu='docker start ubuntu &amp;&amp; docker attach ubuntu'</code>。</p>
+<h2 id="配置-ubuntu-容器">配置 Ubuntu 容器<a href="#配置-ubuntu-容器" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<h3 id="fish-shell">fish shell<a href="#fish-shell" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>我习惯使用 fish shell，并以 fish 为默认 shell。在容器中，我首先安装了 fish shell：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install fish
+</span></span></code></pre></div><p>我没有使用 <code>chsh</code> 命令来更改默认 shell，而是直接修改了对 <code>ubuntu</code> 命令的 alias：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">alias</span> ubuntu <span class="s2">&#34;docker start ubuntu &amp;&amp; \
+</span></span></span><span class="line"><span class="cl"><span class="s2">docker exec -it --user &lt;your-username&gt; \
+</span></span></span><span class="line"><span class="cl"><span class="s2">ubuntu fish -C &#39;cd ~&#39;&#34;</span>
+</span></span></code></pre></div><p>这样，每次进入容器时，都会以普通用户的身份进入 fish shell，并且进入到用户目录。</p>
+<p>到这里，我已经接近了日常使用 Ubuntu 的体验。</p>
+<h3 id="screenfetch">screenfetch<a href="#screenfetch" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>我喜欢登陆时看到 screenfetch，诚实地说，是因为这满足了我小时候对“黑客”的幻想。</p>
+<p>我需要在 Docker 容器中安装 screenfetch，然后在 fish 的配置文件中添加 screenfetch 命令。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install screenfetch
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;screenfetch 2&gt;/dev/null&#34;</span> &gt;&gt; ~/.config/fish/config.fish
+</span></span></code></pre></div><p>这里，因为 screenfetch 无法访问宿主机的信息，会显示一行错误信息，所以我在 screenfetch 命令后面加了一个 <code>2&gt;/dev/null</code> 来丢弃错误信息。</p>
+<p>我说，谁能拒绝一个 screenfetch 呢？</p>
+<p><img src="/Southern-wood.github.io/posts/2024-04-30_run-ubuntu-on-mac-with-docker/pic/pic/screen.png" alt="screenfetch"></p>
+<h2 id="配置-docker-容器代理">配置 Docker 容器代理<a href="#配置-docker-容器代理" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>注意，这不是代理 Docker 的软件源，而是代理 Docker 容器内的网络。</p>
+<p>编辑 <code>~/.docker/config.json</code> 文件，添加以下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;proxies&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;default&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&#34;httpProxy&#34;</span><span class="p">:</span> <span class="s2">&#34;http://proxy.example.com:8080&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">     <span class="nt">&#34;httpsProxy&#34;</span><span class="p">:</span> <span class="s2">&#34;http://proxy.example.com:8080&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>这里的 <code>httpProxy</code> 和 <code>httpsProxy</code> 需要根据你实际的代理设置进行修改。</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+      <a href="https:/Southern-wood.github.io/posts/2025-01-23_how-to-use-resources-on-a-shared-linux-server/" class="button inline prev">
+        &lt; [<span class="button__text">如何在共享的 Linux 服务器上合理使用资源</span>]
+      </a>
+    
+    
+      ::
+    
+    
+      <a href="https:/Southern-wood.github.io/posts/2024-11-25_life-never-ends/" class="button inline next">
+         [<span class="button__text">生活没有终点</span>] &gt;
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/Southern-wood.github.io/bundle.min.js"></script>
+
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script>
+
+(function(){
+  function init(){
+    if(typeof renderMathInElement !== 'function') return;
+    try{
+      renderMathInElement(document.body, {
+        
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        
+        ignoredTags: ['script','noscript','style','textarea','pre','code']
+      });
+    }catch(e){
+      console && console.error && console.error('KaTeX render error', e);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+
+  
+</div>
+
+</body>
+</html>
