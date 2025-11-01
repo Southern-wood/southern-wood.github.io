@@ -1,26 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>LLM Safety on Southern</title>
-    <link>https://Southern-wood.github.io/tags/llm-safety/</link>
-    <description>Recent content in LLM Safety on Southern</description>
-    <image>
-      <title>Southern</title>
-      <url>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://Southern-wood.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.147.0</generator>
-    <language>zh</language>
-    <lastBuildDate>Sat, 09 Aug 2025 17:35:00 +0800</lastBuildDate>
-    <atom:link href="https://Southern-wood.github.io/tags/llm-safety/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Paper Sharing: Large Language Model Safety - A Holistic Survey</title>
-      <link>https://Southern-wood.github.io/post/2025/8/llm_safety/</link>
-      <pubDate>Sat, 09 Aug 2025 17:35:00 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/post/2025/8/llm_safety/</guid>
-      <description>&lt;p&gt;论文链接：&lt;a href=&#34;https://arxiv.org/abs/2412.17686&#34;&gt;arXiv:2412.17686 | Dan Shi 等&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM Safety on Wood's Blog</title><link>https:/Southern-wood.github.io/tags/llm-safety/</link><description>Recent content in LLM Safety on Wood's Blog</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 09 Aug 2025 17:35:00 +0800</lastBuildDate><atom:link href="https:/Southern-wood.github.io/tags/llm-safety/index.xml" rel="self" type="application/rss+xml"/><item><title>Paper Sharing: Large Language Model Safety - A Holistic Survey</title><link>https:/Southern-wood.github.io/handouts/2025-08-09_llm_safety/</link><pubDate>Sat, 09 Aug 2025 17:35:00 +0800</pubDate><guid>https:/Southern-wood.github.io/handouts/2025-08-09_llm_safety/</guid><description>&lt;p&gt;论文链接：&lt;a href="https://arxiv.org/abs/2412.17686"&gt;arXiv:2412.17686 | Dan Shi 等&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;期刊/会议：arXiv preprint&lt;/p&gt;
-&lt;p&gt;主要工作：对大语言模型的安全性进行全面调查，分析现有的安全性挑战和解决方案，并提出未来的研究方向。&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+&lt;p&gt;主要工作：对大语言模型的安全性进行全面调查，分析现有的安全性挑战和解决方案，并提出未来的研究方向。&lt;/p&gt;
+&lt;h2 id="基础定义"&gt;基础定义&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;LLM Safety: 指的是对 LLM 进行负责任的开发、部署和使用，以避免造成有意或无意的伤害。其关注点在于模型的输出和行为，例如偏见、毒性、价值对齐等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;LLM Security: 指的是保护 LLM 系统本身免受外部技术威胁。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这篇论文讨论的是 LLM Safety，而非 LLM Security.&lt;/p&gt;
+&lt;h2 id="总体分类"&gt;总体分类&lt;/h2&gt;
+&lt;p&gt;总体来说，这篇论文把 LLM safety 分为两大类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基础安全（Basic Safety）：包括模型的输出和行为，例如偏见、毒性、价值对齐等。&lt;/li&gt;
+&lt;li&gt;相关安全（Related Safety）：包含更广泛的，和 LLM 相关的安全问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https:/Southern-wood.github.io/handouts/2025-08-09_llm_safety/images/taxonomy.png" alt="Overview of LLM Safety"&gt;&lt;/p&gt;
+&lt;p&gt;这篇论文是一个全面的文献综述，因此涵盖的范围非常广，对每个领域都花了大量的篇幅进行讨论（正文 95 页）。为了节约时间，在这里我只重点介绍一些我个人认为重要且有代表性的内容，其余的内容我们简单介绍，细节可以参考论文。&lt;/p&gt;
+&lt;h2 id="基础安全"&gt;基础安全&lt;/h2&gt;
+&lt;p&gt;按照论文，基础安全分为四类，包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 价值对齐（Value Alignment）&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 攻击与防御（Jailbreaks and Defenses）&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 滥用（Misuse）&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 自主性风险（Autonomy Risks）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="价值对齐value-alignment"&gt;价值对齐（Value Alignment）&lt;/h2&gt;
+&lt;p&gt;价值对齐是指 LLM 的输出和行为与人类的价值观和期望一致。论文中讨论了以下几个方面：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 社会偏见（Social Bias）&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 隐私（Privacy）&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 毒性 &amp;amp; 道德伦理（Toxicity &amp;amp; Moral Ethics）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="社会偏见social-bias"&gt;社会偏见（Social Bias）&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;社会偏见的具体表现形式&lt;/p&gt;</description></item></channel></rss>
