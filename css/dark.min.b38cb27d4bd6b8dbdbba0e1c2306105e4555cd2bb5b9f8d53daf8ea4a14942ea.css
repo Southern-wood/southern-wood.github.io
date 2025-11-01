@@ -1,0 +1,1 @@
+:root{--background:#1d2021;--foreground:#ebdbb2;--accent:#8ec07c}.theme-toggle{display:inline-block;padding:.4rem .9rem;border-radius:6px;background:var(--background);color:var(--accent);border:1px solid rgba(142,192,124,.18);cursor:pointer;font-weight:600;line-height:1}.theme-toggle:hover{opacity:.95}

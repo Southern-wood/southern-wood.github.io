@@ -29,6 +29,12 @@ LLM Security: 指的是保护 LLM 系统本身免受外部技术威胁。
 
 
   
+  <link rel="stylesheet" href="https://Southern-wood.github.io/css/dark.min.b38cb27d4bd6b8dbdbba0e1c2306105e4555cd2bb5b9f8d53daf8ea4a14942ea.css">
+
+  
+  <link rel="stylesheet" href="https://Southern-wood.github.io/css/light.min.60354f954cabab586da24b34821c80bfa04ace6e76eef0d63f5fbd92e7ad893f.css">
+
+  
   <link rel="stylesheet" href="https://Southern-wood.github.io/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
 
   
@@ -68,23 +74,11 @@ LLM Security: 指的是保护 LLM 系统本身免受外部技术威胁。
   <link rel="stylesheet" href="https://Southern-wood.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
 
 
-<script>(function(){
-  try{
-    var theme = localStorage.getItem('theme');
-    if(!theme){
-      var m = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-      theme = (m && m.matches) ? 'dark' : 'light';
-    }
-    
-    document.documentElement.setAttribute('data-theme', theme);
-    
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.id = 'theme-css';
-    link.href = './css/' + (theme === 'dark' ? 'dark.css' : 'light.css');
-    document.head.appendChild(link);
-  }catch(e){console && console.error && console.error(e);} 
-})();</script>
+
+
+  
+  <script src="https://Southern-wood.github.io/js/head.min.240c9f622db646e108604263b2150f34646179abf2f96b7360b00e2c9bee24b8.js"></script>
+
 
 
 
@@ -225,35 +219,11 @@ LLM Security: 指的是保护 LLM 系统本身免受外部技术威胁。
 
   
 
-  <script>
-    (function () {
-      function updateButtonLabel(theme) {
-        var btn = document.getElementById('theme-toggle');
-        if (!btn) return;
-        
-        btn.textContent = (theme === 'dark') ? 'light' : 'dark';
-        btn.setAttribute('aria-pressed', theme === 'dark');
-      }
 
-      function toggleTheme() {
-        var current = document.documentElement.getAttribute('data-theme') || 'light';
-        var next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        try { localStorage.setItem('theme', next); } catch (e) { }
-        var link = document.getElementById('theme-css');
-        if (link) { link.href = './css/' + (next === 'dark' ? 'dark.css' : 'light.css'); }
-        updateButtonLabel(next);
-      }
 
-      var btn = document.getElementById('theme-toggle');
-      if (btn) {
-        btn.addEventListener('click', toggleTheme);
-        
-        var init = document.documentElement.getAttribute('data-theme') || 'light';
-        updateButtonLabel(init);
-      }
-    })();
-  </script>
+
+<script src="https://Southern-wood.github.io/js/header.min.a9335b53a9343d1e8b992735a6cd54269681541bdf9f3ef7dc72e8afd8b5874f.js"></script>
+
 </header>
 
   <div class="content">
