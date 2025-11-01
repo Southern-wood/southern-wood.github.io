@@ -57,6 +57,25 @@
   <link rel="stylesheet" href="https://Southern-wood.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
 
 
+<script>(function(){
+  try{
+    var theme = localStorage.getItem('theme');
+    if(!theme){
+      var m = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      theme = (m && m.matches) ? 'dark' : 'light';
+    }
+    
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.id = 'theme-css';
+    link.href = './css/' + (theme === 'dark' ? 'dark.css' : 'light.css');
+    document.head.appendChild(link);
+  }catch(e){console && console.error && console.error(e);} 
+})();</script>
+
+
 
 
 
@@ -125,7 +144,11 @@
 
     </div>
     
-      <ul class="menu menu--mobile">
+    <div class="header__theme">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"></button>
+    </div>
+    
+    <ul class="menu menu--mobile">
   <li class="menu__trigger">Menu&nbsp;▾</li>
   <li>
     <ul class="menu__dropdown">
@@ -151,7 +174,7 @@
     
   </div>
   
-    <nav class="navigation-menu">
+  <nav class="navigation-menu">
   <ul class="navigation-menu__inner menu--desktop">
     
       
@@ -173,8 +196,37 @@
 </nav>
 
   
-</header>
 
+  <script>
+    (function () {
+      function updateButtonLabel(theme) {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        
+        btn.textContent = (theme === 'dark') ? 'light' : 'dark';
+        btn.setAttribute('aria-pressed', theme === 'dark');
+      }
+
+      function toggleTheme() {
+        var current = document.documentElement.getAttribute('data-theme') || 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) { }
+        var link = document.getElementById('theme-css');
+        if (link) { link.href = './css/' + (next === 'dark' ? 'dark.css' : 'light.css'); }
+        updateButtonLabel(next);
+      }
+
+      var btn = document.getElementById('theme-toggle');
+      if (btn) {
+        btn.addEventListener('click', toggleTheme);
+        
+        var init = document.documentElement.getAttribute('data-theme') || 'light';
+        updateButtonLabel(init);
+      }
+    })();
+  </script>
+</header>
 
   <div class="content">
     
