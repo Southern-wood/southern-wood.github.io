@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Research on Wood&#39;s Blog</title>
-    <link>https:/Southern-wood.github.io/tags/research/</link>
+    <link>https://Southern-wood.github.io/tags/research/</link>
     <description>Recent content in Research on Wood&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 30 Apr 2024 08:42:54 +0800</lastBuildDate>
-    <atom:link href="https:/Southern-wood.github.io/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://Southern-wood.github.io/tags/research/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Invariant Rule Baseline 复现</title>
-      <link>https:/Southern-wood.github.io/posts/2024-04-30_nids/</link>
+      <link>https://Southern-wood.github.io/posts/2024-04-30_nids/</link>
       <pubDate>Tue, 30 Apr 2024 08:42:54 +0800</pubDate>
-      <guid>https:/Southern-wood.github.io/posts/2024-04-30_nids/</guid>
+      <guid>https://Southern-wood.github.io/posts/2024-04-30_nids/</guid>
       <description>对一篇工业控制系统网络异常检测的论文进行复现，按照我们所需要的实验 setting 进行代码效率，并提供一个可并行化的实现</description>
     </item>
   </channel>
