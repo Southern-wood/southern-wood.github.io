@@ -17,22 +17,19 @@
     <loc>https://Southern-wood.github.io/categories/</loc>
     <lastmod>2025-10-26T20:42:54+08:00</lastmod>
   </url><url>
-    <loc>https://Southern-wood.github.io/tags/hallucination/</loc>
-    <lastmod>2025-10-26T20:42:54+08:00</lastmod>
-  </url><url>
     <loc>https://Southern-wood.github.io/categories/handout/</loc>
     <lastmod>2025-10-26T20:42:54+08:00</lastmod>
   </url><url>
     <loc>https://Southern-wood.github.io/tags/llm/</loc>
     <lastmod>2025-10-26T20:42:54+08:00</lastmod>
   </url><url>
+    <loc>https://Southern-wood.github.io/tags/llm-hallucination/</loc>
+    <lastmod>2025-10-26T20:42:54+08:00</lastmod>
+  </url><url>
     <loc>https://Southern-wood.github.io/categories/paper-share/</loc>
     <lastmod>2025-10-26T20:42:54+08:00</lastmod>
   </url><url>
     <loc>https://Southern-wood.github.io/handouts/2025-10-26_llm_halu/</loc>
-    <lastmod>2025-10-26T20:42:54+08:00</lastmod>
-  </url><url>
-    <loc>https://Southern-wood.github.io/tags/</loc>
     <lastmod>2025-10-26T20:42:54+08:00</lastmod>
   </url><url>
     <loc>https://Southern-wood.github.io/tags/llm-safety/</loc>
@@ -47,7 +44,10 @@
     <loc>https://Southern-wood.github.io/tags/aerospace/</loc>
     <lastmod>2025-02-04T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://Southern-wood.github.io/tags/mac/</loc>
+    <loc>https://Southern-wood.github.io/tags/mac-os/</loc>
+    <lastmod>2025-02-04T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://Southern-wood.github.io/tags/operating-systems/</loc>
     <lastmod>2025-02-04T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://Southern-wood.github.io/tags/raycast/</loc>
@@ -59,7 +59,13 @@
     <loc>https://Southern-wood.github.io/categories/tech-blog/</loc>
     <lastmod>2025-02-04T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://Southern-wood.github.io/tags/linux/</loc>
+    <loc>https://Southern-wood.github.io/tags/programming/</loc>
+    <lastmod>2025-01-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://Southern-wood.github.io/tags/shell-scripting/</loc>
+    <lastmod>2025-01-23T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://Southern-wood.github.io/tags/ubuntu/</loc>
     <lastmod>2025-01-23T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://Southern-wood.github.io/posts/2025-01-23_how-to-use-resources-on-a-shared-linux-server/</loc>
@@ -74,13 +80,19 @@
     <loc>https://Southern-wood.github.io/tags/screenfetch/</loc>
     <lastmod>2024-12-21T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://Southern-wood.github.io/tags/ubuntu/</loc>
+    <loc>https://Southern-wood.github.io/tags/setups/</loc>
+    <lastmod>2024-12-21T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://Southern-wood.github.io/tags/virtualization/</loc>
     <lastmod>2024-12-21T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://Southern-wood.github.io/posts/2024-04-30_run-ubuntu-on-mac-with-docker/pic/</loc>
     <lastmod>2024-12-21T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://Southern-wood.github.io/tags/algorithm-contest/</loc>
+    <lastmod>2024-11-25T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://Southern-wood.github.io/tags/icpc/ccpc/</loc>
     <lastmod>2024-11-25T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://Southern-wood.github.io/tags/life/</loc>
@@ -95,22 +107,22 @@
     <loc>https://Southern-wood.github.io/posts/2024-06-07_work-on-ubuntu/</loc>
     <lastmod>2024-06-07T15:57:54+08:00</lastmod>
   </url><url>
-    <loc>https://Southern-wood.github.io/tags/llm-security/</loc>
-    <lastmod>2024-05-26T20:42:54+08:00</lastmod>
-  </url><url>
     <loc>https://Southern-wood.github.io/handouts/2024-05-26_on-prompt-driven-safeguarding-for-language-models/</loc>
     <lastmod>2024-05-26T20:42:54+08:00</lastmod>
   </url><url>
-    <loc>https://Southern-wood.github.io/tags/safety-prompt/</loc>
+    <loc>https://Southern-wood.github.io/tags/prompt-engineering/</loc>
     <lastmod>2024-05-26T20:42:54+08:00</lastmod>
   </url><url>
     <loc>https://Southern-wood.github.io/posts/2024-05-19_11st-week/</loc>
     <lastmod>2024-05-19T20:42:54+08:00</lastmod>
   </url><url>
+    <loc>https://Southern-wood.github.io/tags/academic/</loc>
+    <lastmod>2024-04-30T08:42:54+08:00</lastmod>
+  </url><url>
     <loc>https://Southern-wood.github.io/posts/2024-04-30_nids/</loc>
     <lastmod>2024-04-30T08:42:54+08:00</lastmod>
   </url><url>
-    <loc>https://Southern-wood.github.io/tags/research/</loc>
+    <loc>https://Southern-wood.github.io/tags/python/</loc>
     <lastmod>2024-04-30T08:42:54+08:00</lastmod>
   </url><url>
     <loc>https://Southern-wood.github.io/tags/security/</loc>
