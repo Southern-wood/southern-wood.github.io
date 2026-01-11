@@ -262,7 +262,7 @@
 <p>这种情况如果在本地的机器，我可能会用 GNU Parallel；但是服务器上并没有安装这个工具。作为一个替代方案，我常用的方式是手动写一个 shell 脚本来管理任务。</p>
 <p>例如，main.py 这个程序需要在 10 个数据集上运行，我写的 shell 脚本可能会像这样：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="o">{</span>1..10<span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="k">do</span>
 </span></span><span class="line"><span class="cl">    nohup python main.py --dataset dataset_<span class="nv">$i</span> 2&gt;<span class="p">&amp;</span><span class="m">1</span> &gt; output_<span class="nv">$i</span>.log <span class="p">&amp;</span>
@@ -275,7 +275,7 @@
 </ul>
 <p>所以，我实际上会在脚本里手动控制并行任务的数量，并将输出重定向到不同的文件中。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nv">max_jobs</span><span class="o">=</span><span class="m">5</span>
 </span></span><span class="line"><span class="cl"><span class="nv">current_jobs</span><span class="o">=</span><span class="m">0</span>
 </span></span><span class="line"><span class="cl">
@@ -316,13 +316,13 @@
 <p>因此我在 AI 工具辅助下编写了一个简单的脚本，这个脚本可以查看当前所有用户的显存使用情况，各个 GPU 剩余的显存，以及当前用户的内存使用情况。</p>
 <p>为了方便高亮查看，我把整个脚本的核心代码贴在下面，去掉了 watch -n 1 的前缀。实际使用的脚本中，我使用 watch -n 1 来每秒刷新一次脚本显示，实现实时监控的效果。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">nvidia-smi --query-compute-apps<span class="o">=</span>pid,used_memory --format<span class="o">=</span>csv,noheader,nounits <span class="p">|</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="k">while</span> <span class="nv">IFS</span><span class="o">=</span><span class="s1">&#39;,&#39;</span> <span class="nb">read</span> -r pid memory<span class="p">;</span> <span class="k">do</span> 
+</span></span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nv">IFS</span><span class="o">=</span><span class="s1">&#39;,&#39;</span> <span class="nb">read</span> -r pid memory<span class="p">;</span> <span class="k">do</span> 
 </span></span><span class="line"><span class="cl">  <span class="nv">user</span><span class="o">=</span><span class="k">$(</span>ps -o <span class="nv">user</span><span class="o">=</span> -p <span class="nv">$pid</span><span class="k">)</span><span class="p">;</span> 
 </span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$user</span><span class="s2">,</span><span class="nv">$memory</span><span class="s2">&#34;</span><span class="p">;</span> 
 </span></span><span class="line"><span class="cl"><span class="k">done</span> <span class="p">|</span> awk -F<span class="s2">&#34;,&#34;</span> <span class="s1">&#39;&#34;&#39;</span><span class="s2">&#34;&#39;{mem[</span><span class="nv">$1</span><span class="s2">]+=</span><span class="nv">$2</span><span class="s2">} END {for (u in mem) print u, mem[u] &#34;</span> MiB<span class="s2">&#34;}&#39;&#34;</span><span class="s1">&#39;&#34;&#39;</span> <span class="p">|</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>        awk -v <span class="nv">current_user</span><span class="o">=</span><span class="s2">&#34;&#39;</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">&#39;&#34;</span> <span class="s1">&#39;&#34;&#39;</span><span class="s2">&#34;&#39;{if (</span><span class="nv">$1</span><span class="s2"> == current_user) printf &#34;</span>%-10s %-10s %-10.2f GB %-10.2f Cards &lt;<span class="o">==</span><span class="se">\n</span><span class="s2">&#34;, </span><span class="nv">$1</span><span class="s2">, </span><span class="nv">$2</span><span class="s2">, </span><span class="nv">$2</span><span class="s2">/1024, </span><span class="nv">$2</span><span class="s2">/24576; else printf &#34;</span>%-10s %-10s %-10.2f GB %-10.2f Cards<span class="se">\n</span><span class="s2">&#34;, </span><span class="nv">$1</span><span class="s2">, </span><span class="nv">$2</span><span class="s2">, </span><span class="nv">$2</span><span class="s2">/1024, </span><span class="nv">$2</span><span class="s2">/24576}&#39;&#34;</span><span class="s1">&#39;&#34;&#39;</span> <span class="p">|</span> sort -k3 -nr <span class="p">|</span> column -t
+</span></span></span><span class="line"><span class="cl">        awk -v <span class="nv">current_user</span><span class="o">=</span><span class="s2">&#34;&#39;</span><span class="k">$(</span>whoami<span class="k">)</span><span class="s2">&#39;&#34;</span> <span class="s1">&#39;&#34;&#39;</span><span class="s2">&#34;&#39;{if (</span><span class="nv">$1</span><span class="s2"> == current_user) printf &#34;</span>%-10s %-10s %-10.2f GB %-10.2f Cards &lt;<span class="o">==</span><span class="se">\n</span><span class="s2">&#34;, </span><span class="nv">$1</span><span class="s2">, </span><span class="nv">$2</span><span class="s2">, </span><span class="nv">$2</span><span class="s2">/1024, </span><span class="nv">$2</span><span class="s2">/24576; else printf &#34;</span>%-10s %-10s %-10.2f GB %-10.2f Cards<span class="se">\n</span><span class="s2">&#34;, </span><span class="nv">$1</span><span class="s2">, </span><span class="nv">$2</span><span class="s2">, </span><span class="nv">$2</span><span class="s2">/1024, </span><span class="nv">$2</span><span class="s2">/24576}&#39;&#34;</span><span class="s1">&#39;&#34;&#39;</span> <span class="p">|</span> sort -k3 -nr <span class="p">|</span> column -t
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;==============================================&#34;</span>
@@ -401,7 +401,7 @@
 <p>指定 GPU 为 opti_device 后，pytorch 会自动选择一个较为空闲的 GPU 进行计算。</p>
 <p>使用这个 GPU 代码片段，shell 脚本并行任务需要做出一些修改。在提交每个任务需要调用 <code>sleep</code> 命令等待一段时间，使任务有足够的时间把需要的 GPU 显存分配完成。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nv">max_jobs</span><span class="o">=</span><span class="m">5</span>
 </span></span><span class="line"><span class="cl"><span class="nv">current_jobs</span><span class="o">=</span><span class="m">0</span>
 </span></span><span class="line"><span class="cl">
@@ -459,7 +459,7 @@
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
     
       <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
       </div>
