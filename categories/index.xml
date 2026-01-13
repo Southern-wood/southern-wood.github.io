@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Wood&#39;s Blog</title>
-    <link>https://Southern-wood.github.io/categories/</link>
+    <link>https://southernwood.space/categories/</link>
     <description>Recent content in Categories on Wood&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Nov 2025 20:42:54 +0800</lastBuildDate>
-    <atom:link href="https://Southern-wood.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://southernwood.space/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Academic</title>
-      <link>https://Southern-wood.github.io/categories/academic/</link>
+      <link>https://southernwood.space/categories/academic/</link>
       <pubDate>Thu, 13 Nov 2025 20:42:54 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/categories/academic/</guid>
+      <guid>https://southernwood.space/categories/academic/</guid>
       <description></description>
     </item>
     <item>
       <title>Handout</title>
-      <link>https://Southern-wood.github.io/categories/handout/</link>
+      <link>https://southernwood.space/categories/handout/</link>
       <pubDate>Thu, 13 Nov 2025 20:42:54 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/categories/handout/</guid>
+      <guid>https://southernwood.space/categories/handout/</guid>
       <description></description>
     </item>
     <item>
       <title>Tiny Survey</title>
-      <link>https://Southern-wood.github.io/categories/tiny-survey/</link>
+      <link>https://southernwood.space/categories/tiny-survey/</link>
       <pubDate>Thu, 13 Nov 2025 20:42:54 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/categories/tiny-survey/</guid>
+      <guid>https://southernwood.space/categories/tiny-survey/</guid>
       <description></description>
     </item>
     <item>
       <title>Paper Share</title>
-      <link>https://Southern-wood.github.io/categories/paper-share/</link>
+      <link>https://southernwood.space/categories/paper-share/</link>
       <pubDate>Sun, 26 Oct 2025 20:42:54 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/categories/paper-share/</guid>
+      <guid>https://southernwood.space/categories/paper-share/</guid>
       <description></description>
     </item>
     <item>
       <title>Tech Blog</title>
-      <link>https://Southern-wood.github.io/categories/tech-blog/</link>
+      <link>https://southernwood.space/categories/tech-blog/</link>
       <pubDate>Tue, 04 Feb 2025 00:00:00 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/categories/tech-blog/</guid>
+      <guid>https://southernwood.space/categories/tech-blog/</guid>
       <description></description>
     </item>
     <item>
       <title>Personal</title>
-      <link>https://Southern-wood.github.io/categories/personal/</link>
+      <link>https://southernwood.space/categories/personal/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/categories/personal/</guid>
+      <guid>https://southernwood.space/categories/personal/</guid>
       <description></description>
     </item>
   </channel>

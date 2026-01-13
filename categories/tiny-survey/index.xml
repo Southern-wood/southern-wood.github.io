@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tiny Survey on Wood&#39;s Blog</title>
-    <link>https://Southern-wood.github.io/categories/tiny-survey/</link>
+    <link>https://southernwood.space/categories/tiny-survey/</link>
     <description>Recent content in Tiny Survey on Wood&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Nov 2025 20:42:54 +0800</lastBuildDate>
-    <atom:link href="https://Southern-wood.github.io/categories/tiny-survey/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://southernwood.space/categories/tiny-survey/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tiny Survey: Agent Safety</title>
-      <link>https://Southern-wood.github.io/handouts/2025-11-13_agent_safety/</link>
+      <link>https://southernwood.space/handouts/2025-11-13_agent_safety/</link>
       <pubDate>Thu, 13 Nov 2025 20:42:54 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/handouts/2025-11-13_agent_safety/</guid>
+      <guid>https://southernwood.space/handouts/2025-11-13_agent_safety/</guid>
       <description>&lt;h2 id=&#34;agent-safety-包括哪些内容&#34;&gt;Agent Safety 包括哪些内容？&lt;/h2&gt;&#xA;&lt;h3 id=&#34;工程视角&#34;&gt;工程视角&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;CSIRO&amp;rsquo;s data61 27 Jan 2025&lt;/strong&gt; &lt;a href=&#34;https://arxiv.org/html/2408.02205v4&#34;&gt;Swiss Cheese Model for AI Safety: A Taxonomy and Reference Architecture for Multi-Layered Guardrails of Foundation Model Based Agents&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Summary:&lt;/p&gt;&#xA;&lt;p&gt;本文提出 Agent 防护的 “多层奶酪模型”，核心主张：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;没有单一的防护措施能够确保 Agent 的绝对安全，每一层防护（即每一片“奶酪”）都可能有其自身的弱点或漏洞（即“孔洞”）&lt;/li&gt;&#xA;&lt;li&gt;通过将多个不同的防护层（例如，提示词审查、计划验证、工具使用监控、最终结果审查）叠在一起，各层之间的“孔洞”不会对齐；在某个层面（如提示词层）未能被捕获的风险，很可能会在另一个层面（如计划层或结果层）被拦截，从而创建出一个整体上鲁棒的纵深防御体系&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;论文划分的防护层：&lt;/p&gt;</description>
     </item>
   </channel>

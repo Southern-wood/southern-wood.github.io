@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zhengnan Guo on Wood&#39;s Blog</title>
-    <link>https://Southern-wood.github.io/bio_zh/</link>
+    <link>https://southernwood.space/bio_zh/</link>
     <description>Recent content in Zhengnan Guo on Wood&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://Southern-wood.github.io/bio_zh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://southernwood.space/bio_zh/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

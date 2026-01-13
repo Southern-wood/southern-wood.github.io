@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell Scripting on Wood&#39;s Blog</title>
-    <link>https://Southern-wood.github.io/tags/shell-scripting/</link>
+    <link>https://southernwood.space/tags/shell-scripting/</link>
     <description>Recent content in Shell Scripting on Wood&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Jan 2025 00:00:00 +0800</lastBuildDate>
-    <atom:link href="https://Southern-wood.github.io/tags/shell-scripting/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://southernwood.space/tags/shell-scripting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何在共享的 Linux 服务器上合理使用资源</title>
-      <link>https://Southern-wood.github.io/posts/2025-01-23_how-to-use-resources-on-a-shared-linux-server/</link>
+      <link>https://southernwood.space/posts/2025-01-23_how-to-use-resources-on-a-shared-linux-server/</link>
       <pubDate>Thu, 23 Jan 2025 00:00:00 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/posts/2025-01-23_how-to-use-resources-on-a-shared-linux-server/</guid>
+      <guid>https://southernwood.space/posts/2025-01-23_how-to-use-resources-on-a-shared-linux-server/</guid>
       <description>总结一些在 Linux 服务器上进行资源管理、并行化脚本设置的经验，包括如何监控和优化 CPU、GPU 的使用</description>
     </item>
     <item>
       <title>Invariant Rule Baseline 复现</title>
-      <link>https://Southern-wood.github.io/posts/2024-04-30_nids/</link>
+      <link>https://southernwood.space/posts/2024-04-30_nids/</link>
       <pubDate>Tue, 30 Apr 2024 08:42:54 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/posts/2024-04-30_nids/</guid>
+      <guid>https://southernwood.space/posts/2024-04-30_nids/</guid>
       <description>对一篇工业控制系统网络异常检测的论文进行复现，按照我们所需要的实验 setting 进行代码效率，并提供一个可并行化的实现</description>
     </item>
   </channel>

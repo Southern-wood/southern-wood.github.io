@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LLM Hallucination on Wood&#39;s Blog</title>
-    <link>https://Southern-wood.github.io/tags/llm-hallucination/</link>
+    <link>https://southernwood.space/tags/llm-hallucination/</link>
     <description>Recent content in LLM Hallucination on Wood&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Oct 2025 20:42:54 +0800</lastBuildDate>
-    <atom:link href="https://Southern-wood.github.io/tags/llm-hallucination/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://southernwood.space/tags/llm-hallucination/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Paper Sharing: Hallucination in LLMs</title>
-      <link>https://Southern-wood.github.io/handouts/2025-10-26_llm_halu/</link>
+      <link>https://southernwood.space/handouts/2025-10-26_llm_halu/</link>
       <pubDate>Sun, 26 Oct 2025 20:42:54 +0800</pubDate>
-      <guid>https://Southern-wood.github.io/handouts/2025-10-26_llm_halu/</guid>
+      <guid>https://southernwood.space/handouts/2025-10-26_llm_halu/</guid>
       <description>&lt;p&gt;论文链接：&lt;a href=&#34;https://www.nature.com/articles/s41586-024-07421-0&#34;&gt;Nature 2024 | Detecting hallucinations in large language models using semantic entropy&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;期刊/会议：Nature 2024&lt;/p&gt;&#xA;&lt;h2 id=&#34;基础定义&#34;&gt;基础定义&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;LLM Hallucination: 指的是大语言模型生成与事实不符、或者没有依据的内容&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;虽然幻觉的定义已经扩展到更广泛的范围，但是这篇 Nature 的工作主要讨论虚假认知（confabulations），特征是模型以准确、武断的方式生成错误并且随机的信息。&lt;/p&gt;</description>
     </item>
   </channel>
