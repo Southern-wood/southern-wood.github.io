@@ -6,6 +6,7 @@
   <title>Zhengnan Guo</title>
   <meta name="description" content="Academic homepage for Zhengnan Guo, focusing on NLP, large language models, and artificial intelligence in education.">
   <link rel="canonical" href="https://southernwood.space/">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <meta name="theme-color" content="#f7f3ea">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Zhengnan Guo">
@@ -148,11 +149,20 @@
     }
 
     .intro {
+      position: relative;
       display: grid;
       grid-template-columns: minmax(13rem, 16.5rem) minmax(0, 1fr);
       gap: 1.9rem;
       align-items: start;
       padding-bottom: var(--space-5);
+    }
+
+    .intro::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: min(100%, var(--max));
       border-bottom: 1px solid var(--divider);
     }
 
@@ -309,9 +319,7 @@
 
     .publication {
       padding: 1rem 0 1.1rem;
-      border-top: 1px solid var(--divider);
-      border-bottom: 1px solid var(--divider);
-      background: color-mix(in oklab, var(--paper) 96%, white);
+      background: transparent;
     }
 
     .publication-title {
@@ -356,17 +364,81 @@
       gap: 1rem;
     }
 
+    .experience-list {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.95rem 0;
+    }
+
+    .experience-logo {
+      display: grid;
+      place-items: center;
+      width: 9.5rem;
+      min-height: 4rem;
+      padding: 0.3rem 0;
+      background: transparent;
+    }
+
+    .experience-logo img {
+      width: 100%;
+      height: auto;
+    }
+
+    .experience-copy {
+      min-width: 0;
+    }
+
+    .experience-company {
+      margin: 0;
+      font-size: 1.08rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .experience-role {
+      margin: 0.16rem 0 0;
+      font-family: var(--ui-font);
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.035em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .experience-topic {
+      margin: 0.34rem 0 0;
+      color: var(--muted);
+    }
+
+    .experience-date {
+      align-self: start;
+      padding-top: 0.1rem;
+      font-family: var(--ui-font);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+      white-space: nowrap;
+    }
+
     .education-item {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 0.9rem 1rem;
       padding-bottom: 0.9rem;
-      border-bottom: 1px solid color-mix(in oklab, var(--divider) 85%, transparent);
     }
 
     .education-item:last-child {
       padding-bottom: 0;
-      border-bottom: 0;
     }
 
     .institution {
@@ -416,15 +488,26 @@
       }
 
       .timeline-item,
+      .experience-item,
       .education-item {
         grid-template-columns: 1fr;
         gap: 0.3rem;
       }
 
       .timeline-date,
+      .experience-date,
       .education-date {
         text-align: left;
         justify-self: start;
+      }
+
+      .experience-item {
+        gap: 0.7rem;
+      }
+
+      .experience-logo {
+        width: 8.4rem;
+        min-height: 3.5rem;
       }
 
       .publication-actions {
@@ -486,7 +569,7 @@
           <h2 id="intro-heading" class="section-title">About</h2>
           <p>Hi there! I am currently an undergraduate student majoring in Computer Science at Zhejiang University of Technology, expecting to graduate in June 2026.</p>
           <p>I have been admitted to the Ph.D. program at the <a href="https://aiedu.ecnu.edu.cn/" target="_blank" rel="noreferrer noopener">Shanghai Institute of Artificial Intelligence for Education</a>, East China Normal University. I will be conducting my research under the supervision of <a href="https://faculty.ecnu.edu.cn/_s47/tf2/main.psp" target="_blank" rel="noreferrer noopener">Prof. Fei Tan</a>, with a focus on Natural Language Processing (NLP), Large Language Models (LLMs), and Artificial Intelligence in Education (AIED). My recent interests include Diffusion Language Models, Evaluation of LLMs, and Hallucination Mitigation for LLMs.</p>
-          <p>I am always open to academic discussions, potential collaborations, or simply making new friends; drop me a message anytime! Email: <a href="mailto:zhengnan.guo@zjut.edu.cn">zhengnan.guo [at] zjut.edu.cn</a></p>
+          <p>I am always open to academic discussions, potential collaborations, or simply making new friends—drop me a message anytime! Email: <a href="mailto:zhengnan.guo@zjut.edu.cn">zhengnan.guo [at] zjut.edu.cn</a></p>
         </div>
       </section>
 
@@ -531,6 +614,23 @@
         </ul>
       </section>
 
+      <section class="section" aria-labelledby="experience-heading">
+        <h2 id="experience-heading" class="section-title">Experience</h2>
+        <div class="experience-list">
+          <article class="experience-item">
+            <div class="experience-logo">
+              <img src="assets/Ant_Group.svg" width="1544" height="488" alt="Ant Group logo" loading="lazy">
+            </div>
+            <div class="experience-copy">
+              <p class="experience-company"><strong>Ant Group</strong></p>
+              <p class="experience-role">Research Intern</p>
+              <p class="experience-topic">Benchmarking LLMs on Financial Tasks</p>
+            </div>
+            <div class="experience-date">Apr. 2026 – Now</div>
+          </article>
+        </div>
+      </section>
+
       <section class="section" aria-labelledby="education-heading">
         <h2 id="education-heading" class="section-title">Education</h2>
         <div class="education-list">
@@ -546,7 +646,7 @@
               <p class="institution"><strong>Zhejiang University of Technology</strong></p>
               <p class="degree">B.Sc. in Computer Science</p>
             </div>
-            <div class="education-date">Sept. 2022 to June 2026 (Expected)</div>
+            <div class="education-date">Sept. 2022 – June 2026 (Expected)</div>
           </article>
         </div>
       </section>
