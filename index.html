@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zhengnan Guo</title>
-  <meta name="description" content="Academic homepage for Zhengnan Guo, focusing on NLP, large language models, and artificial intelligence in education.">
+  <meta name="description" content="Academic homepage for Zhengnan Guo (郭正楠), focusing on NLP, large language models, and artificial intelligence in education.">
   <link rel="canonical" href="https://southernwood.space/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <meta name="theme-color" content="#f7f3ea">
@@ -79,6 +79,12 @@
       background-size: 22px 22px;
     }
 
+    p,
+    li {
+      hyphens: auto;
+      overflow-wrap: break-word;
+    }
+
     a {
       color: var(--accent);
       text-decoration-thickness: 0.08em;
@@ -130,7 +136,7 @@
     }
 
     .page {
-      width: min(calc(100% - 2rem), 64rem);
+      width: min(calc(100% - 2rem), var(--max));
       margin: 0 auto;
       padding: 2.4rem 0 3.3rem;
     }
@@ -250,7 +256,6 @@
 
     .intro-copy p {
       margin: 0 0 0.95rem;
-      max-width: 39rem;
     }
 
     .intro-copy p:last-child {
@@ -315,6 +320,21 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       vertical-align: 0.08rem;
+    }
+
+    .news-highlight {
+      display: inline-block;
+      margin-left: 0.15rem;
+      padding: 0.05rem 0.38rem 0.09rem;
+      border: 1.4px solid var(--ink);
+      border-radius: 10px 18px 12px 20px / 18px 12px 20px 10px;
+      background: color-mix(in oklab, #f7c948 42%, white);
+      box-shadow: 2px 2px 0 0 var(--shadow);
+      font-family: var(--ui-font);
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
     }
 
     .publication {
@@ -468,7 +488,7 @@
 
     @media (max-width: 760px) {
       .page {
-        width: min(calc(100% - 1.25rem), 64rem);
+        width: min(calc(100% - 1.25rem), var(--max));
         padding-top: 1.5rem;
       }
 
@@ -567,9 +587,9 @@
 
         <div class="intro-copy">
           <h2 id="intro-heading" class="section-title">About</h2>
-          <p>Hi there! I am currently an undergraduate student majoring in Computer Science at Zhejiang University of Technology, expecting to graduate in June 2026.</p>
-          <p>I have been admitted to the Ph.D. program at the <a href="https://aiedu.ecnu.edu.cn/" target="_blank" rel="noreferrer noopener">Shanghai Institute of Artificial Intelligence for Education</a>, East China Normal University. I will be conducting my research under the supervision of <a href="https://faculty.ecnu.edu.cn/_s47/tf2/main.psp" target="_blank" rel="noreferrer noopener">Prof. Fei Tan</a>, with a focus on Natural Language Processing (NLP), Large Language Models (LLMs), and Artificial Intelligence in Education (AIED). My recent interests include Diffusion Language Models, Evaluation of LLMs, and Hallucination Mitigation for LLMs.</p>
-          <p>I am always open to academic discussions, potential collaborations, or simply making new friends—drop me a message anytime! Email: <a href="mailto:zhengnan.guo@zjut.edu.cn">zhengnan.guo [at] zjut.edu.cn</a></p>
+          <p>Hi there! I am a first-year Ph.D. student at the <a href="https://aiedu.ecnu.edu.cn/" target="_blank" rel="noreferrer noopener">Shanghai Institute of Artificial Intelligence for Education</a>, East China Normal University, advised by <a href="https://faculty.ecnu.edu.cn/_s47/tf2/main.psp" target="_blank" rel="noreferrer noopener">Prof. Fei Tan</a>.</p>
+          <p>My long-term research vision is to advance the capabilities of large language models through improvements in training data and model architectures, and to apply these models in mission-critical domains, especially finance and education. I am currently interested in diffusion language models and applications of large language models in finance and education.</p>
+          <p>I am always open to academic discussions, potential collaborations, or simply making new friends. Feel free to drop me a message anytime.</p>
         </div>
       </section>
 
@@ -585,7 +605,7 @@
           <article class="timeline-item">
             <div class="timeline-date">Mar. 2026</div>
             <div class="timeline-body">
-              <p class="news-line"><span class="news-tag">Funding</span>My diffusion language model research project received compute support from MiraclePlus following an in-person interview with Dr. Qi Lu. This is a rolling grant project and the first tranche is valued at RMB 250,000.</p>
+              <p class="news-line"><span class="news-tag">Funding</span>My diffusion language model research project received compute support from MiraclePlus (奇绩创坛), following an in-person interview with Dr. Qi Lu. This is a rolling grant project and the first tranche is valued at RMB 300,000. <span class="news-highlight">Funding Rate ≈ 2%</span></p>
             </div>
           </article>
         </div>
@@ -607,7 +627,7 @@
       <section class="section" aria-labelledby="awards-heading">
         <h2 id="awards-heading" class="section-title">Grants &amp; Awards</h2>
         <ul class="bullet-list">
-          <li>Compute Grant for AI Research, MiraclePlus — Mar. 2026</li>
+          <li>Compute Grant for AI Research, MiraclePlus (奇绩创坛) — Mar. 2026</li>
           <li>The 49th ICPC Asia Regional Contest (Shenyang) — Bronze — Nov. 2024</li>
           <li>The 10th CCPC (Zhengzhou) — Bronze — Nov. 2024</li>
           <li>The 49th ICPC Asia Regional Contest (Chengdu) — Bronze — Oct. 2024</li>
@@ -626,7 +646,7 @@
               <p class="experience-role">Research Intern</p>
               <p class="experience-topic">Benchmarking LLMs on Financial Tasks</p>
             </div>
-            <div class="experience-date">Apr. 2026 – Now</div>
+            <div class="experience-date">Apr. 2026 – Present</div>
           </article>
         </div>
       </section>
@@ -639,14 +659,14 @@
               <p class="institution"><strong>East China Normal University</strong></p>
               <p class="degree">Ph.D. in Computer Science</p>
             </div>
-            <div class="education-date">Starting Sept. 2026</div>
+            <div class="education-date">Sept. 2026 – Present</div>
           </article>
           <article class="education-item">
             <div>
               <p class="institution"><strong>Zhejiang University of Technology</strong></p>
               <p class="degree">B.Sc. in Computer Science</p>
             </div>
-            <div class="education-date">Sept. 2022 – June 2026 (Expected)</div>
+            <div class="education-date">Sept. 2022 – June 2026</div>
           </article>
         </div>
       </section>
